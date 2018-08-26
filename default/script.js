@@ -80,9 +80,6 @@ var templates = {
     </div>
   </div>`,
   nav: `
-  ${document.getElementById('main').dataset.banner == 'true' ? `<header><img src="Miramonte-EECS.png" /></header>` : ''
-  
-  }
   <ul>
     <li><a href="/index.html">Home</a></li>
     <li><a href="">Forums</a></li>
@@ -133,11 +130,11 @@ $(document).ready(() => {
 
   $(window).scroll(() => {
     // console.log(`window.scrollTop(): ${$(window).scrollTop()}, ul.scrollTop(): ${$('nav#main ul').scrollTop()}, header.outherHeight(): ${$('nav#main header').outerHeight()}`)
-    if ($(window).scrollTop() < $('nav#main header').outerHeight()) {
+    if ($(window).scrollTop() < $('header.main').outerHeight()) {
       $('nav#main ul').css('margin-top', `${-$(window).scrollTop()}px`);
     //   console.log($('nav#main').css('margin-top'));
     }
-    else $('nav#main ul').css('margin-top', `${-$('nav#main header').outerHeight()}px`);
+    else $('nav#main ul').css('margin-top', `${-$('header.main').outerHeight()}px`);
 
   });
 });
@@ -145,7 +142,7 @@ var current = null;
 var lastFocus = 'email';
 $('.login').html(templates.login);
 $('nav#main').html(templates.nav);
-$('nav#main nav-displace').height($('nav#main ul').height());
+// $('nav#main nav-displace').height($('nav#main ul').height());
 $('nav#main ul li.dropdown').hover(() => {
   setTimeout(() => {
     $('nav#main ul li.dropdown .dropdown-content').css('pointer-events', 'auto');

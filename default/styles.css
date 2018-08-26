@@ -1,5 +1,8 @@
 @import url('https://rsms.me/inter/inter-ui.css');
 
+:root {
+  
+}
 html, body {
   background: #eee;
   font-family: 'Inter UI', sans-serif;
@@ -8,14 +11,14 @@ html, body {
   padding: 0;
 }
 
-nav#main .nav-displace {
+/*nav#main .nav-displace {
   padding: 0;
   margin: 0;
   border: 0;
   width: 100%;
   height: calc(3em + 3px);
-}
-nav#main header {
+}*/
+header.main {
   background-color: green;
   width: 100%;
 }
