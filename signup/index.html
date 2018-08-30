@@ -6,70 +6,25 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" type="text/css" href="../default/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
 </head>
-<?php
-/*$servername = "mysql.hostinger.com";
-$database = "u952616191_accnt";
-$username = "u952616191_admin";
-$password = "Luck15243Good";*/
-$conn = mysqli_connect("mysql.hostinger.com", "u952616191_admin", "Luck15243Good", "u952616191_accnt");
-$conn || die("Connection failed: " . mysqli_connect_error());
-// echo "Connected successfully";
-mysqli_close($conn);
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-    
-}
-?>
-<nav id="main" data-active="home" data-banner=true>
-  <header>
-    <img src="../Miramonte-EECS.png" />
-  </header>
-  <ul>
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="">Forums</a></li>
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Clubs</a>
-      <div class="dropdown-content">
-        <a href="">AI Neural Networks</a>
-        <a href="">PiE Robotics</a> 
-        <a href="">Game Dev</a>
-        <a href="">Computer Science</a>
-      </div>
-    </li> 
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Events</a>
-      <div class="dropdown-content">
-        <a href="">Event 1</a>
-        <a href="">Event 2</a>
-        <a href="">Event 3</a>
-      </div>
-    </li>
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Projects</a>
-      <div class="dropdown-content">
-        <a href="">PiE Robot</a>
-        <a href="">Project 2</a>
-        <a href="">Project 3</a>
-      </div>
-    </li>
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Tools</a>
-      <div class="dropdown-content">
-      <a href="encrypt">AES Encryption</a>
-      </div>
-    </li>
-<!--
-    <li class="dropdown">
-      <a href="javascript:void(0)" class="dropbtn">Education</a>
-      <div class="dropdown-content">
--->
-  </ul>
-  <div></div>
-  <div class="nav-displace"></div>
-</nav>
+
+
 <body>
-  <div class="login"></div>
+  <nav id="main"></nav>
+  
+  <div class="submit-button">
+    <div class="button">
+      <div class="text">Submit</div>
+    </div>
+    <div class="progress-bar"></div>
+    <svg id="check-svg" x="0px" y="0px"
+  	 viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
+      <path class="check" class="st0" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2"/>
+    </svg>
+  </div>
+
 </body>
-<script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="../default/script.js"></script>
+<script type="text/javascript" src="script.js"></script>
 </html>

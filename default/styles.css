@@ -11,13 +11,13 @@ html, body {
   padding: 0;
 }
 
-/*nav#main .nav-displace {
+nav#main .nav-displace {
   padding: 0;
   margin: 0;
   border: 0;
   width: 100%;
   height: calc(3em + 3px);
-}*/
+}
 header.main {
   background-color: green;
   width: 100%;
@@ -60,7 +60,6 @@ nav#main li.dropdown {
   display: inline-block;
 }
 nav#main .dropdown-content {
-
   visibility: hidden; /* hides sub-menu */  
   opacity: 0;
   position: absolute;

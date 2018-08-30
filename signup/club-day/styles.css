@@ -1,0 +1,765 @@
+
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+body,
+input,
+select,
+textarea,
+body * {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+body::after, body::before,
+input::after,
+input::before,
+select::after,
+select::before,
+textarea::after,
+textarea::before,
+body *::after,
+body *::before {
+  box-sizing: border-box;
+}
+body {
+  background-color: #eee !important;
+}
+.form-group.school-email {
+  margin: 2em 1em;
+}
+.form-group.school-email * {
+  display: inline-block;
+}
+.form-group.school-email label {
+  color: black;
+  word-wrap: break-word;
+} 
+.form-group.school-email p {
+  cursor: pointer;
+  display: none;
+  color: white;
+}
+.form-group.school-email p i {
+  background: #af0;
+  padding: 0.2em 0.5em 0.2em 0.3em;
+  border-radius: 0.2em;
+  margin-right: 0.5em;
+  margin-left: 1em
+}
+.form-group.school-email p span {
+  background: #0af;
+  padding: 0.2em 0.5em;
+  border-radius: 0.2em;
+}
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0 2em;
+  color: black;
+}
+textarea {
+  margin-top: 2em;
+}
+.container {
+  position: relative;
+  max-width: 70rem;
+  margin: 5rem auto;
+  background: #fff;
+  width: 95%;
+  padding: 3rem 5rem 0;
+  padding-bottom: 7em;
+  border-radius: 1px;
+}
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+  -webkit-transition: -webkit-transform 0.28s ease-in-out;
+  transition: -webkit-transform 0.28s ease-in-out;
+  transition: transform 0.28s ease-in-out;
+  transition: transform 0.28s ease-in-out, -webkit-transform 0.28s ease-in-out;
+  z-index: -1;
+}
+.container:hover::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.button-container {
+  text-align: center;
+}
+.contact-info .form-group {
+  margin-bottom: 2em;
+}
+.side .form-group {
+  display: inline-block;
+}
+.side .form-group.first, .side .form-group.last {
+  width: calc(50% - 1.9em * 1.52  - (2.5em + 8em)/2)
+}
+.side.discord .form-group {
+  width: calc(100% - 7.1rem);
+}
+.side.discord .form-group.tag {
+  width: 3em;
+  margin: 0;
+}
+.side.discord .form-group.tag input {
+  letter-spacing: .1em;
+}
+fieldset {
+  margin: 0 0 3rem;
+  padding: 0;
+  border: none;
+}
+.contact-info .contact {
+  margin: 2em 0;
+}
+.contact-info i.fa-trash {
+  transition-duration: calc(0.5s * var(--speed));
+  color: #aaa;
+  float: right;
+  margin-top: 0.5rem;
+  margin-right: -1rem;
+  cursor: pointer;
+}
+.contact-info .form-group {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.contact-info i.fa-trash:hover {
+  color: #f77;
+}
+.form-radio,
+.form-group {
+  position: relative;
+  margin: 1rem 1rem;
+}
+.form-group.number {
+  width: 2.5em;
+}
+.form-inline > .form-group,
+.form-inline > .btn {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.form-help {
+  margin-top: 0.125rem;
+  margin-left: 0.125rem;
+  color: #b3b3b3;
+  font-size: 0.8rem;
+}
+.checkbox .form-help, .form-radio .form-help, .form-group .form-help {
+  position: absolute;
+  width: 100%;
+}
+.checkbox .form-help {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.form-radio .form-help {
+  padding-top: 0.25rem;
+  margin-top: -1rem;
+}
+input[type=submit] {
+  background: white;
+}
+.form-group input {
+  height: 1.9rem;
+  
+}
+.form-group textarea {
+  resize: none;
+}
+.form-group select {
+  width: 100%;
+  font-size: 1rem;
+  height: 1.6rem;
+  padding: 0.125rem 0.125rem 0.0625rem;
+  background: none;
+  border: none;
+  line-height: 1.6;
+  box-shadow: none;
+}
+.form-group option {
+  border-radius: 1em;
+}
+.form-group .control-label {
+  position: absolute;
+  top: 0.25rem;
+  pointer-events: none;
+  padding-left: 0.125rem;
+  z-index: 1;
+  color: #b3b3b3;
+  font-size: 1rem;
+  font-weight: normal;
+  -webkit-transition: all 0.28s ease;
+  transition: all 0.28s ease;
+}
+.form-group .bar {
+  position: relative;
+  border-bottom: 0.0625rem solid #999;
+  display: block;
+}
+.form-group .bar::before {
+  content: '';
+  height: 0.125rem;
+  width: 0;
+  left: 50%;
+  bottom: -0.0625rem;
+  position: absolute;
+  background: #0af;
+  -webkit-transition: left 0.28s ease, width 0.28s ease;
+  transition: left 0.28s ease, width 0.28s ease;
+  z-index: 2;
+}
+.form-group input,
+.form-group textarea {
+  display: block;
+  background: none;
+  padding: 0.125rem 0.125rem 0.0625rem;
+  font-size: 1rem;
+  border-width: 0;
+  border-color: transparent;
+  line-height: 1.9;
+  width: 100%;
+  color: transparent;
+  -webkit-transition: all 0.28s ease;
+  transition: all 0.28s ease;
+  box-shadow: none;
+}
+.form-group input[type="file"] {
+  line-height: 1;
+}
+.form-group input[type="file"] ~ .bar {
+  display: none;
+}
+.form-group select,
+.form-group input:focus,
+.form-group input:valid,
+.form-group input.form-file,
+.form-group input.has-value,
+.form-group textarea:focus,
+.form-group textarea:valid,
+.form-group textarea.form-file,
+.form-group textarea.has-value {
+  color: #333;
+}
+.form-group select ~ .control-label,
+.form-group input:focus ~ .control-label,
+.form-group input:valid ~ .control-label,
+.form-group input.form-file ~ .control-label,
+.form-group input.has-value ~ .control-label,
+.form-group input.school-email,
+.form-group textarea:focus ~ .control-label,
+.form-group textarea:valid ~ .control-label,
+.form-group textarea.form-file ~ .control-label,
+.form-group textarea.has-value ~ .control-label {
+  font-size: 0.8rem;
+  color: gray;
+  top: -1rem;
+  left: 0;
+}
+.form-group select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+}
+.form-group select:focus ~ .control-label,
+.form-group input:focus ~ .control-label,
+.form-group textarea:focus ~ .control-label {
+  color: #337ab7;
+}
+.form-group select:focus ~ .bar::before,
+.form-group input:focus ~ .bar::before,
+.form-group textarea:focus ~ .bar::before {
+  width: 100%;
+  left: 0;
+}
+
+.checkbox label,
+.form-radio label {
+  position: relative;
+  cursor: pointer;
+  padding-left: 2rem;
+  text-align: left;
+  color: #333;
+  display: block;
+}
+.checkbox input,
+.form-radio input {
+  width: auto;
+  opacity: 0.00000001;
+  position: absolute;
+  left: 0;
+}
+
+.radio {
+  margin-bottom: 1rem;
+}
+.radio .helper {
+  position: absolute;
+  top: -0.25rem;
+  left: -0.25rem;
+  cursor: pointer;
+  display: block;
+  font-size: 1rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #999;
+}
+.radio .helper::before, .radio .helper::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0.25rem;
+  width: 1rem;
+  height: 1rem;
+  -webkit-transition: -webkit-transform 0.28s ease;
+  transition: -webkit-transform 0.28s ease;
+  transition: transform 0.28s ease;
+  transition: transform 0.28s ease, -webkit-transform 0.28s ease;
+  border-radius: 50%;
+  border: 0.125rem solid currentColor;
+}
+.radio .helper::after {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+.radio label:hover .helper {
+  color: #337ab7;
+}
+.radio input:checked ~ .helper::after {
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+.radio input:checked ~ .helper::before {
+  color: #337ab7;
+}
+
+.checkbox {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+.checkbox .helper {
+  color: #999;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  z-index: 0;
+  border: 0.125rem solid currentColor;
+  border-radius: 0.0625rem;
+  -webkit-transition: border-color 0.28s ease;
+  transition: border-color 0.28s ease;
+}
+.checkbox .helper::before, .checkbox .helper::after {
+  position: absolute;
+  height: 0;
+  width: 0.2rem;
+  background-color: #337ab7;
+  display: block;
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  border-radius: 0.25rem;
+  content: '';
+  -webkit-transition: opacity 0.28s ease, height 0s linear 0.28s;
+  transition: opacity 0.28s ease, height 0s linear 0.28s;
+  opacity: 0;
+}
+.checkbox .helper::before {
+  top: 0.65rem;
+  left: 0.38rem;
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  box-shadow: 0 0 0 0.0625rem #fff;
+}
+.checkbox .helper::after {
+  top: 0.3rem;
+  left: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.checkbox label:hover .helper {
+  color: #337ab7;
+}
+.checkbox input:checked ~ .helper {
+  color: #337ab7;
+}
+.checkbox input:checked ~ .helper::after, .checkbox input:checked ~ .helper::before {
+  opacity: 1;
+  -webkit-transition: height 0.28s ease;
+  transition: height 0.28s ease;
+}
+.checkbox input:checked ~ .helper::after {
+  height: 0.5rem;
+}
+.checkbox input:checked ~ .helper::before {
+  height: 1.2rem;
+  -webkit-transition-delay: 0.28s;
+          transition-delay: 0.28s;
+}
+
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: 1rem;
+}
+
+.has-error .legend.legend, .has-error.form-group .control-label.control-label {
+  color: #d9534f;
+}
+.has-error.form-group .form-help,
+.has-error.form-group .helper, .has-error.checkbox .form-help,
+.has-error.checkbox .helper, .has-error.radio .form-help,
+.has-error.radio .helper, .has-error.form-radio .form-help,
+.has-error.form-radio .helper {
+  color: #d9534f;
+}
+.has-error .bar::before {
+  background: #d9534f;
+  left: 0;
+  width: 100%;
+}
+
+.button {
+  position: relative;
+  background: currentColor;
+  border: 1px solid currentColor;
+  font-size: 1.1rem;
+  color: #4f93ce;
+  margin: 3rem 0;
+  padding: 0.75rem 3rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+  transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+  overflow: hidden;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+.button span {
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.button::before {
+  content: '';
+  position: absolute;
+  background: #071017;
+  border: 50vh solid #1d4567;
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  display: block;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+}
+.button:hover {
+  color: #337ab7;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+}
+.button:active::before, .button:focus::before {
+  -webkit-transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+  transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+  transition: transform 1.12s ease, opacity 0.28s ease 0.364s;
+  transition: transform 1.12s ease, opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+          transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+}
+.button:focus {
+  outline: none;
+}
+
+
+
+
+
+
+
+body {
+  background: black;
+}
+:root {
+  --speed: 0.7;
+}
+
+.add-contact p {
+  display: inline-block;
+  margin-left: 1em;
+}
+.add-contact .add-button .sub-button i {
+  transform: scale(2);
+}
+
+
+body {
+    padding: 0;
+    margin: 0;
+}
+.add-button {
+  position: absolute;
+  left: calc(1.3em - 0.5vw);
+  width: 56px;
+  height: 56px;
+  overflow: visible;
+  -webkit-transition: transform calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46),
+    color 0s ease calc(.4s * var(--speed)),font-size calc(.2s * var(--speed));
+  -moz-transition: transform calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46),
+    color 0s ease calc(.4s * var(--speed)),font-size calc(.2s * var(--speed));
+  transition: transform .4s cubic-bezier(.58,-0.37,.45,1.46),
+    color 0s ease calc(.4s * var(--speed)),font-size calc(.2s * var(--speed));
+  text-align: center;
+  line-height: 56px;
+  font-size: 28px;
+  color: rgba(255,255,255,1);
+}
+
+.add-button:before {
+  position: relative;
+  z-index: 100;
+  content:"+";
+}
+
+
+
+.add-button:hover {
+  transition-duration: calc(0.5s * var(--speed));
+  color: rgba(255,255,255,0);
+  transform: rotate(45deg);
+}
+
+.sub-button {
+  transition-duration: 0.5s;
+  position: absolute;
+  display: inline-block;
+  background-color: #0af;
+  color: rgba(255,255,255,0);
+  width: 28px;
+  height: 28px;
+  line-height:48px;
+  font-family: "FontAwesome";
+  font-size: 12px;
+  -webkit-transition: top calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    left calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    bottom calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    right calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    width calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    height calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    transform calc(.1s * var(--speed)) ease 0s,
+    border-radius calc(.2s * var(--speed))  ease calc(.2s * var(--speed)),
+    font-size 0s ease calc(.5s * var(--speed));
+   -moz-transition: top calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    left calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    bottom calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    right calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    width calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    height calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    transform calc(.1s * var(--speed)) ease 0s,
+    border-radius calc(.2s * var(--speed))  ease calc(.2s * var(--speed)),
+    font-size 0s ease calc(.5s * var(--speed));
+   transition: top calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    left calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    bottom calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    right calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    width calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    height calc(.2s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.2s * var(--speed)),
+    transform calc(.1s * var(--speed)) ease 0s,
+    border-radius calc(.2s * var(--speed))  ease calc(.2s * var(--speed)),
+    font-size 0s ease calc(.5s * var(--speed));
+}
+.sub-button:hover {
+  cursor: pointer;
+}
+
+.tl {
+  top: 0;
+  left: 0;
+  border-radius: 28px 0 0 0;
+}
+
+.tr {  
+  top: 0;
+  right: 0;
+  border-radius: 0 28px 0 0;
+}
+
+.bl {
+  bottom: 0;
+  left: 0; 
+  border-radius: 0 0 0 28px;
+}
+
+.br { 
+  bottom: 0;
+  right: 0;
+  border-radius: 0 0 28px 0;
+}
+
+
+.tl:before {
+}
+
+.tr:before {
+}
+
+.bl:before {
+}
+
+.br:before {
+}
+
+
+.add-contact .add-button ~ p {
+  -webkit-animation: in calc(1s * var(--speed));
+}
+
+.add-contact .add-button:hover ~ p {
+  -webkit-animation: out calc(1s * var(--speed));
+  transform: translateX(35px);
+}
+
+@-webkit-keyframes out {
+    from   {transform: translateX(0px); }
+    to { transform: translateX(35px);}
+}
+
+@-webkit-keyframes in {
+    0%   { transform: translateX(35px); }
+    100% { transform: translateX(0px); }
+}
+.add-button:hover .sub-button {
+  width: 48px;
+  height: 48px;
+  transform: rotate(-45deg);
+  
+  color: rgba(255,255,255,1);
+  -webkit-transition: top calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    left calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    bottom calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    right calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    width calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    height calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    color calc(.3s * var(--speed)) ease calc(.8s * var(--speed)),
+    transform calc(.3s * var(--speed)) ease calc(.8s * var(--speed)),
+    border-radius calc(.4s * var(--speed))  ease calc(.6s * var(--speed));
+   -moz-transition: top calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    left calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    bottom calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    right calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    width calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    height calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    color calc(.3s * var(--speed)) ease calc(.8s * var(--speed)),
+    transform calc(.3s * var(--speed)) ease calc(.8s * var(--speed)),
+    border-radius calc(.4s * var(--speed))  ease calc(.6s * var(--speed));
+   transition: top calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    left calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    bottom calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    right calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    width calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    height calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+    color calc(.3s * var(--speed)) ease calc(.8s * var(--speed)),
+    transform calc(.3s * var(--speed)) ease calc(.8s * var(--speed)),
+    border-radius calc(.4s * var(--speed))  ease calc(.6s * var(--speed));
+}
+
+.add-button:hover .tl {
+  top: -25px;
+  left: -25px;
+  border-radius: 28px;
+}
+
+.add-button:hover .tr {  
+  top: -25px;
+  right: -25px;
+  border-radius: 28px;
+}
+
+.add-button:hover .bl {
+  bottom: -25px;
+  left: -25px; 
+  border-radius: 28px;
+}
+
+.add-button:hover .br { 
+  bottom: -25px;
+  right: -25px;
+  border-radius: 28px;
+}
+
+
+
+
+
+
+
+
+
+.submit-button {
+  margin-top: 7em;
+}
+.submit-button .submit-btn {
+  background: #fff;
+  opacity: 1 ;
+  height: 5rem;
+  width: 12rem;
+  text-align: center;
+  position: absolute;
+  /*top: 50%;*/
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #0af !important;
+}
+.submit-button .submit-text {
+  font: bold 1.25rem/1 poppins;
+  color: #0af;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-52%);
+  left: 0;
+  right: 0;
+}
+.submit-button .submit-progress-bar {
+  position: absolute;
+  height: 10px;
+  width: 0;
+  right: 0;
+  /*top: 50%;*/
+  left: 50%;
+  border-radius: 200px;
+  transform: translateY(-50%) translateX(-50%);
+  background: #0af;
+}
+.submit-button .check-svg {
+  width: 30px;
+  position: absolute;
+  /*top: 50%;*/
+  transform: translateY(-50%) translateX(-50%);
+  left: 50%;
+  right: 0;
+  cursor: pointer;
+}
+.submit-button .submit-check {
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
