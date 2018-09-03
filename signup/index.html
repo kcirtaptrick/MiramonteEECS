@@ -12,8 +12,16 @@
 
 <body>
   <nav id="main"></nav>
-  
-  <div class="submit-button">
+  <form action="signup.php" method="post">
+    <input type="text" name="username" placeholder="Username" value="a"/>
+    <input type="text" name="firstname" placeholder="First Name" value="a"/>
+    <input type="text" name="lastname" placeholder="Last Name" value="a"/>
+    <input type="email" name="email" placeholder="Email" value="a@a.com"/>
+    <input type="password" name="password" placeholder="Password" value="a"/>
+    <input type="password" placeholder="Confirm Password"/>
+    <input type="submit"/>
+  </form>
+  <!--<div class="submit-button">
     <div class="button">
       <div class="text">Submit</div>
     </div>
@@ -22,7 +30,7 @@
   	 viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
       <path class="check" class="st0" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2"/>
     </svg>
-  </div>
+  </div>-->
 
 </body>
 <script type="text/javascript" src="../default/script.js"></script>

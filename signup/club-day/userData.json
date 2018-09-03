@@ -1,0 +1,28 @@
+[{
+  firstname: "first",
+  lastname: "last",
+  age: "17",
+  grade: "12",
+  schoolEmail: "first.lastyy@auhsdschools.org",
+  contactInfo: [{
+    type: "email",
+    contact: "firstlast@gmail.com"
+  }, {
+    type: "phone",
+    contact: "1234567890"
+  }, {
+    type: "discord",
+    contact: "first last#1234"
+  }, {
+    type: "git",
+    contact: "https://github.com/username"
+  }],
+  clubs: {
+    pie: true,
+    gamedev: true,
+    maker: true,
+    cs: true,
+    not: false
+  },
+  additionalInfo: ""
+}]
