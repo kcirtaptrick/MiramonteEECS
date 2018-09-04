@@ -22,6 +22,9 @@ body *::before {
 body {
   background-color: #eee !important;
 }
+iframe {
+  display: none;
+}
 .form-group.school-email {
   margin: 2em 1em;
 }

@@ -1,7 +1,6 @@
 
 console.clear();
 var $;
-
 var date = new Date();
 var group = (group) => {
   return $(`.form-group.${group} input`);
@@ -33,14 +32,14 @@ var get = {
   }
 }
 $('.form-group.first input, .form-group.last input, .form-group.grade').on('input', () => {
-  $('.form-group.school-email label').text(`School Email: ${get.schoolEmail()}`);
+  $('.form-group.school-email span.email').text(`${get.schoolEmail()}`);
     $('.form-group.school-email p').css('display', 'inline-block');
 }); 
 $('.form-group.school-email p i').click(() => {
   $('.form-group.school-email p').css('display', 'none');
 })
 $('.form-group.school-email p span').click(() => {
-  $('.form-group.school-email').html(`<input type="email" value="${get.schoolEmail()}" required="required"/><label for="input" class="control-label">School email</label>
+  $('.form-group.school-email').html(`<input type="text" name="school-email" value="${get.schoolEmail()}" required="required"/><label for="input" class="control-label">School Email</label>
 <i class="bar"></i>`);
   $('.form-group.school-email input').select();
   $('.form-group.school-email label').css('color', '#808080');
@@ -51,10 +50,11 @@ var clickTrash = () => {
    });
 }
 
+
 $('.add-contact .tl').click(() => {
   console.log('tl');
   add.contactInfo(`<div class="form-group email">
-      <input type="email" required/><label for="input" class="control-label">Email</label>
+      <input type="text" required/><label for="input" class="control-label">Email</label>
       <i class="bar"></i>
     </div>`);
   clickTrash();
@@ -62,9 +62,8 @@ $('.add-contact .tl').click(() => {
 $('.add-contact .tr').click(() => {
   console.log('tr');
   add.contactInfo(`<div class="form-group phone">
-      <input type="tel" required/><label for="input" class="control-label">Phone #</label>
+      <input type="text" required/><label for="input" class="control-label">Phone #</label>
       <i class="bar"></i>
-      
     </div>`);
   clickTrash();
   $('.form-group.phone input').on('input', (e) => {
@@ -116,6 +115,9 @@ $('.add-contact .br').click(() => {
 var basicTimeline = anime.timeline({
   autoplay: false
 });
+var checkTimeline = anime.timeline({
+  autoplay: false
+})
 
 var pathEls = $(".submit-button .submit-check");
 for (var i = 0; i < pathEls.length; i++) {
@@ -164,10 +166,43 @@ basicTimeline
     strokeDashoffset: [offset, 0],
     duration: 200,
     easing: "easeInOutSine"
-  });
+  });;
 
-$(".submit-button .submit-btn, .submit-button .submit-text, .submit-button .check-svg").click(function() {
+var btnSubmit = $(".submit-button .submit-btn, .submit-button .submit-text, .submit-button .check-svg");
+
+btnSubmit.click(function(e) {
+  btnSubmit.css("pointer-events", "none")
+  setTimeout(() => {btnSubmit.css("pointer-events", "")}, 5000);
+  
   basicTimeline.play();
+  $.ajax({
+    url: 'signup.php',
+    type: 'POST',
+    data: {
+      firstname: $('input.firstname').val(),
+      lastname: $('input.lastname').val(),
+      grade: $('select.grade').val(),
+      contact: [{
+        type: 'email',
+        contact: 'test2'
+      }],
+      additionalInfo: $('textarea.a-info').val()
+    },
+    success: function(msg) {
+      console.log(`success: ${msg}`);
+      $('.container').append(msg);
+      
+      setTimeout(() => {checkTimeline.play()}, 3500);
+    },
+    error: (e) => {
+      console.log('error: ');
+      console.log(e);
+    }
+  });
+  // $('#form').submit();
+  // setTimeout(() => {
+  //   $('#form').trigger('reset');
+    
+  // }, 5000);
 }); 
-
 

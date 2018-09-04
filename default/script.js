@@ -127,7 +127,11 @@ var templates = {
 };
 //$('.login .group #email').parents('.group').addClass('focused');
 //$('nav#main').css('margin-top', '-100px');
-
+console.logs = function() {
+  for(var log of arguments) {
+    console.log(log);
+  }
+}
 $(document).ready(() => {
 
   $(window).scroll(() => {

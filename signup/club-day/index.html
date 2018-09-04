@@ -14,34 +14,34 @@
 
 <body>
   <div class="container">
-    <form>
+    <form id="form" method="post" action="signup.php" target="_self">
       <h1>Miramonte EECS Clubday Signup</h1>
       <div class="side">
         <div class="form-group first">
-          <input type="text" required/>
+          <input type="text" class="firstname" required/>
           <label for="input" class="control-label">Firstname</label><i class="bar"></i>
         </div>
         <div class="form-group last">
-          <input type="text" required/>
+          <input type="text" class="lastname" required/>
           <label for="input" class="control-label">Lastname</label><i class="bar"></i>
         </div>
         <div class="form-group number age">
-          <input type="number" required/>
+          <input type="number" name="age" required/>
           <label for="input" class="control-label">Age</label><i class="bar"></i>
         </div>
         <div class="form-group grade" style="width: 5em">
-          <select>
-          <option>Select</option>
-          <option>9</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
-        </select>
+          <select class="grade">
+            <option>Select</option>
+            <option>9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+          </select>
           <label for="select" class="control-label">Grade</label><i class="bar"></i>
         </div>
       </div>
       <div class="form-group school-email">
-        <label>School Email: </label>
+        <label>School Email: <span class="email" name="school-emailin"></span></label>
         <p><i>&#10004;</i><span>Change</span></p>
       </div>
       <div class="contact-info">
@@ -74,7 +74,7 @@
       </div>
     </div> -->
       <div class="form-group">
-        <textarea></textarea>
+        <textarea class="a-info"></textarea>
         <label for="textarea" class="control-label">Additional Information</label><i class="bar"></i>
       </div>
       <!-- <div class="checkbox">
@@ -94,6 +94,8 @@
     </form>
 
   </div>
+  <div id="out"></div>
+  <iframe name="php" id="iframe"></iframe>
   
 
 </body>
