@@ -2,6 +2,16 @@
 console.clear();
 var $;
 var date = new Date();
+var contacts = [];
+var updateContacts = () => {
+  var ce= $('.contact-info .contacts');
+  for(var i in ce) {
+    contacts[i] = {
+      type: "",
+      contact: ""
+    }
+  }
+}
 var group = (group) => {
   return $(`.form-group.${group} input`);
 }
@@ -35,11 +45,15 @@ $('.form-group.first input, .form-group.last input, .form-group.grade').on('inpu
   $('.form-group.school-email span.email').text(`${get.schoolEmail()}`);
     $('.form-group.school-email p').css('display', 'inline-block');
 }); 
+$('.contact-info .contact .form-group input, .contact-info .contact .form-group side input').on('input', (e) => {
+  console.log(e);
+  
+})
 $('.form-group.school-email p i').click(() => {
   $('.form-group.school-email p').css('display', 'none');
 })
 $('.form-group.school-email p span').click(() => {
-  $('.form-group.school-email').html(`<input type="text" name="school-email" value="${get.schoolEmail()}" required="required"/><label for="input" class="control-label">School Email</label>
+  $('.form-group.school-email').html(`<input type="text" class="school-email" value="${get.schoolEmail()}" required="required"/><label for="input" class="control-label">School Email</label>
 <i class="bar"></i>`);
   $('.form-group.school-email input').select();
   $('.form-group.school-email label').css('color', '#808080');
@@ -169,11 +183,12 @@ basicTimeline
   });;
 
 var btnSubmit = $(".submit-button .submit-btn, .submit-button .submit-text, .submit-button .check-svg");
+console.log(document.querySelector('input.school-email'));
 
 btnSubmit.click(function(e) {
   btnSubmit.css("pointer-events", "none")
   setTimeout(() => {btnSubmit.css("pointer-events", "")}, 5000);
-  
+  console.log(`text: ${$('.form-group.school-email span.email').text()}`);
   basicTimeline.play();
   $.ajax({
     url: 'signup.php',
@@ -182,15 +197,18 @@ btnSubmit.click(function(e) {
       firstname: $('input.firstname').val(),
       lastname: $('input.lastname').val(),
       grade: $('select.grade').val(),
+      schoolEmail: document.querySelector('input.school-email') ? $('input.school-email').val() : $('.form-group.school-email span.email').text(),
       contact: [{
         type: 'email',
-        contact: 'test2'
+        contact: 'test3'
       }],
+      PiE: 0,
+      gameDev: 1,
       additionalInfo: $('textarea.a-info').val()
     },
     success: function(msg) {
       console.log(`success: ${msg}`);
-      $('.container').append(msg);
+      $('.container').append(`<div style="margin-top: 10rem">${msg}</div>`);
       
       setTimeout(() => {checkTimeline.play()}, 3500);
     },
@@ -200,9 +218,10 @@ btnSubmit.click(function(e) {
     }
   });
   // $('#form').submit();
-  // setTimeout(() => {
-  //   $('#form').trigger('reset');
+  setTimeout(() => {
+    $('#form').trigger('reset');
     
-  // }, 5000);
+  }, 5000);
 }); 
 
+console.log("hello"); 
