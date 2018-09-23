@@ -1,0 +1,66 @@
+.container {
+    padding: 1rem 2vw;
+}
+.mid {
+    margin: 0 auto;
+    max-width: 60rem;
+}
+.post {
+    background: white;
+    margin-bottom: 0.5rem;
+    max-width: 60rem;
+    padding: 2rem;
+}
+.post header {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+.post article {
+    
+}
+.comments {
+    background: white;
+    margin: 0 auto;
+    max-width: 60rem;
+    font-size: 0.90rem;
+}
+.list {
+  /*background: white;*/
+  padding: 1em;
+  font-family: sans-serif
+}
+/* .comment {*/
+/*  background: white;*/
+/*  margin: 1em 0;*/
+/*  border: 1px solid #ccc;*/
+/*  padding: 1em 0.3em 1em 1em;*/
+/*  border-radius: 0.5em;*/
+/*} */
+.list .comment {
+  border-left: 2px solid #ccc;
+  border-radius: 0.4em;
+  margin: 1em;
+  padding: .5em;
+  padding-bottom: 0;
+}
+.list .comment header * {
+  display: inline-block;
+  margin: 0 0.5em;
+}
+.list .comment header a {
+  color: #f00;
+  text-decoration: none;
+}
+.list .comment header p {
+  font-size: 0.7em;
+  color: grey;
+}
+.list .comment .content {
+  padding: 1em;
+}
+.list .comment .rating {
+  margin-left: 0.5rem;
+  font-size: 0.75em;
+  color: grey;
+}

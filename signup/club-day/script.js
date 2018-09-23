@@ -1,76 +1,89 @@
-
 console.clear();
-var $;
+
+var $, anime;
 var date = new Date();
-var contacts = [];
-var updateContacts = () => {
-  var ce= $('.contact-info .contacts');
-  for(var i in ce) {
+
+console.log(`Updated: ${date}`);
+
+var getContacts = () => {
+  let contacts = [];
+  let ce = $('.contact-info .contact');
+  for(let i = 0; i < ce.length; i++) {
+    let type = $(ce[i]).data("type");
     contacts[i] = {
-      type: "",
-      contact: ""
-    }
+      type: type,
+      contact: type == "discord" ? `${$(ce[i]).find('.discord .username input').val()}#${$(ce[i]).find('.discord .tag input').val()}` : $(ce[i]).find(".form-group input").val()
+    };
   }
-}
+  return contacts;
+};
+
 var group = (group) => {
   return $(`.form-group.${group} input`);
-}
+};
+
 var format = {
   name: (name) => {
-    return name.toLowerCase().replace(/[^a-z]/gi, '')
+    return name.replace(/[^a-zA-Z ,.'-]+/g, '');
   },
-  grade: (grade) => {
-    return grade.toString().replace(/[^0-9]/g, '')
+  mailName: (name) => {
+    return name.toLowerCase().replace(/[^a-z]/, '');
+  },
+  number: (num) => {
+    return num.toString().replace(/[^0-9]/g, '');
   },
   phone: (number) => {
     var cleaned = ("" + number).replace(/\D/g, '');
     var match = cleaned.match(/^(\d*)(\d{3})(\d{3})(\d{4})$/);
     return (!match) ? cleaned : `${match[1] != '' ? `+${match[1]} ` : ''}(${match[2]}) ${match[3]}-${match[4]}`;
   }
-}
+};
+
 var add = {
-  contactInfo: (str) => {
-    $('.contact-info').append(`<div class="contact"><i class='fa fa-trash'></i>${str}</div>`)
+  contactInfo: (str, type) => {
+    $('.contact-info').append(`<div class="contact" data-type="${type}"><i class='fa fa-trash'></i>${str}</div>`);
   }
-}
-// console.log(document.querySelector('.container *').reduce((acc, curr) => acc + curr.height));
-// console.log($('.container *').toArray().reduce((acc, curr) => acc + curr.outerHeight(true)))
-// $('.container').height($('.container *').reduce((acc, curr) => acc + curr.outerHeight(true)))
+};
+
 var get = {
   schoolEmail: () => {
-    return `${format.name(group('first').val())}.${group('last').val().toLowerCase()}${format.grade(date.getFullYear() % 100 + Number(date.getMonth() > 6) + 12 - Number($('.form-group.grade select option:selected').text()))}@auhsdschools.org`;
+    return `${format.mailName(group('first').val())}.${format.mailName(group('last').val())}${format.number(date.getFullYear() % 100 + Number(date.getMonth() > 6) + 12 - Number($('.form-group.grade select option:selected').text()))}@auhsdschools.org`;
   }
-}
-$('.form-group.first input, .form-group.last input, .form-group.grade').on('input', () => {
+};
+
+$('.form-group.first input, .form-group.last input, .form-group.grade').on('input', (e) => {
   $('.form-group.school-email span.email').text(`${get.schoolEmail()}`);
-    $('.form-group.school-email p').css('display', 'inline-block');
+  $('.form-group.school-email p').css('display', 'inline-block');
 }); 
-$('.contact-info .contact .form-group input, .contact-info .contact .form-group side input').on('input', (e) => {
-  console.log(e);
-  
-})
+
+$('.form-group.first input, .form-group.last input').on('input', (e) => {
+  e.target.value = format.name(e.target.value);
+});
+
 $('.form-group.school-email p i').click(() => {
   $('.form-group.school-email p').css('display', 'none');
-})
+});
+
 $('.form-group.school-email p span').click(() => {
   $('.form-group.school-email').html(`<input type="text" class="school-email" value="${get.schoolEmail()}" required="required"/><label for="input" class="control-label">School Email</label>
 <i class="bar"></i>`);
   $('.form-group.school-email input').select();
   $('.form-group.school-email label').css('color', '#808080');
-})
+});
+
+
 var clickTrash = () => {
   $('.contact-info .contact i.fa-trash').click((e) => {
     e.target.parentElement.parentElement.removeChild(e.target.parentElement);
    });
-}
-
+};
 
 $('.add-contact .tl').click(() => {
   console.log('tl');
   add.contactInfo(`<div class="form-group email">
       <input type="text" required/><label for="input" class="control-label">Email</label>
       <i class="bar"></i>
-    </div>`);
+    </div>`, "email");
   clickTrash();
 });
 $('.add-contact .tr').click(() => {
@@ -78,7 +91,7 @@ $('.add-contact .tr').click(() => {
   add.contactInfo(`<div class="form-group phone">
       <input type="text" required/><label for="input" class="control-label">Phone #</label>
       <i class="bar"></i>
-    </div>`);
+    </div>`, "phone");
   clickTrash();
   $('.form-group.phone input').on('input', (e) => {
     e.target.value = format.phone(e.target.value);
@@ -89,7 +102,7 @@ $('.add-contact .bl').click(() => {
   add.contactInfo(`<div class="form-group git">
       <input type="text" required/><label for="input" class="control-label">Git URL, example https://github.com/username</label>
       <i class="bar"></i>
-    </div>`);
+    </div>`, "git");
   clickTrash();
 });
 $('.add-contact .br').click(() => {
@@ -104,32 +117,24 @@ $('.add-contact .br').click(() => {
         <input type="text" required/><label for="input" class="control-label">Tag</label>
         <i class="bar"></i>
       </div>
-    </div>`);
+    </div>`, "discord");
   clickTrash();
   $('.side.discord .form-group.tag input').on('input', (e) => {
-    e.target.value = e.target.value.slice(0,4);
+    e.target.value = format.number(e.target.value).slice(0,4);
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 var basicTimeline = anime.timeline({
   autoplay: false
 });
+
 var checkTimeline = anime.timeline({
+  autoplay: false
+});
+
+var containerTimeline = anime.timeline({
   autoplay: false
 })
 
@@ -180,16 +185,33 @@ basicTimeline
     strokeDashoffset: [offset, 0],
     duration: 200,
     easing: "easeInOutSine"
-  });;
+  });
+
+containerTimeline
+  .add({
+    targets: ".container",
+    duration: 1000,
+    transform: "translateX(100vw)"
+  })
+
 
 var btnSubmit = $(".submit-button .submit-btn, .submit-button .submit-text, .submit-button .check-svg");
 console.log(document.querySelector('input.school-email'));
 
 btnSubmit.click(function(e) {
-  btnSubmit.css("pointer-events", "none")
-  setTimeout(() => {btnSubmit.css("pointer-events", "")}, 5000);
+  btnSubmit.css("pointer-events", "none");
   console.log(`text: ${$('.form-group.school-email span.email').text()}`);
   basicTimeline.play();
+  
+  setTimeout(() => {
+    btnSubmit.css("pointer-events", "");
+    $('.contact-info').html('');
+    $('#form').trigger('reset');
+    $('container').css({
+      "transform": "translateX(100px)"
+    });
+  }, 5000);
+  
   $.ajax({
     url: 'signup.php',
     type: 'POST',
@@ -198,12 +220,10 @@ btnSubmit.click(function(e) {
       lastname: $('input.lastname').val(),
       grade: $('select.grade').val(),
       schoolEmail: document.querySelector('input.school-email') ? $('input.school-email').val() : $('.form-group.school-email span.email').text(),
-      contact: [{
-        type: 'email',
-        contact: 'test3'
-      }],
-      PiE: 0,
-      gameDev: 1,
+      contact: getContacts(),
+      PiE: +$('.checkbox.pie input').is(':checked'),
+      gameDev: +$('.checkbox.gamedev input').is(':checked'),
+      CS: +$('.checkbox.cs input').is(':checked'),
       additionalInfo: $('textarea.a-info').val()
     },
     success: function(msg) {
@@ -217,11 +237,4 @@ btnSubmit.click(function(e) {
       console.log(e);
     }
   });
-  // $('#form').submit();
-  setTimeout(() => {
-    $('#form').trigger('reset');
-    
-  }, 5000);
-}); 
-
-console.log("hello"); 
+});

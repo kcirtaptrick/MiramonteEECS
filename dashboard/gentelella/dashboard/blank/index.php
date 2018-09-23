@@ -31,16 +31,34 @@
       <link href="../../build/css/custom.min.css" rel="stylesheet">
       <style>
          .menu_fixed::-webkit-scrollbar {
-         width: 0px; 
-         background: transparent;  
+            width: 0px; 
+            background: transparent;  
          }
-         #sidebar-menu i.fas {
-         margin-right: 0.8rem;
-         font-size: 1.5rem;
+         #sidebar-menu i.fas, #sidebar-menu i.far, #sidebar-menu i.fal {
+            margin-right: 0.8rem;
+            font-size: 1.5rem;
          }
          #sidebar-menu {
-         overflow-y: scroll;
-         height: calc(100vh - 167px);
+            overflow-y: scroll;
+            overflow-x: hidden;
+         }
+         #sidebar-menu ul {
+            overflow-x: visible;
+         }
+         .nav-md #sidebar-menu {
+            height: calc(100vh - 167px);
+         }
+         .nav-sm #sidebar-menu {
+            height: calc(100vh - 70px);
+         }
+         .nav-sm .site_title {
+            margin-top: 10px;
+         }
+         .nav-md .nav_title img {
+            width: 40;
+         }
+         .nav-sm .nav_title img {
+            width: 46;
          }
       </style>
    </head>
@@ -50,7 +68,7 @@
             <div class="col-md-3 left_col menu_fixed">
                <div class="left_col scroll-view">
                   <div class="navbar nav_title" style="border: 0;">
-                     <a href="index.html" class="site_title"><img src="../../../../Miramonte-EECS(white_background).png" width=40/></i> <span>Dashboard</span></a>
+                     <a href="index.html" class="site_title"><img src="../../../../Miramonte-EECS(white_background).png"/></i> <span> Dashboard</span></a>
                   </div>
                   <div class="clearfix"></div>
                   <!-- menu profile quick info -->
@@ -70,15 +88,36 @@
                      <div class="menu_section active">
                         <h3>General</h3>
                         <ul class="nav side-menu" style="">
-                           <li class="active">
-                              <a><i class="fas fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                              <ul class="nav child_menu" style="display: block;">
-                                 <li class="current-page"><a href="index.html">Dashboard</a></li>
-                                 <li><a href="index2.html">Dashboard2</a></li>
-                                 <li><a href="index3.html">Dashboard3</a></li>
+                           <li class="active current-page">
+                              <a><i class="fas fa-home"></i> Home </a>
+                           </li>
+                           <!--<li><a href="../"><i class="fas fa-user-shield"></i> Administration </a></li>-->
+                           <li>
+                              <a><i class="fas fa-users"></i> Clubs <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                 <li><a href="#">Computer Science</a></li>
+                                 <li><a href="#">Game Development</a></li>
+                                 <li><a href="#">Pioneers in Engineering</a></li>
                               </ul>
                            </li>
-                           <li><a><i class="fas fa-user-shield"></i> Administration </a></li>
+                           <li>
+                              <a><i class="fas fa-project-diagram"></i> Projects </a>
+                           </li>
+                           <li>
+                              <a><i class="fa fa-calendar"></i> Calendar <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                 <li><a href="#">Events</a></li>
+                                 <li><a href="#">Meetings</a></li>
+                                 <li><a href="#">Deadlines</a></li>
+                              </ul>
+                           </li>
+                           <li>
+                              <a><i class="far fa-comment-alt"></i> Suggestions <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                 <li><a href="#">Suggest Feature</a></li>
+                                 <li><a href="#">Report Bug</a></li>
+                              </ul>
+                           </li>
                            <li>
                               <a><i class="fas fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                               <ul class="nav child_menu">
@@ -131,8 +170,16 @@
                         </ul>
                      </div>
                      <div class="menu_section">
-                        <h3>Live On</h3>
+                        <h3>Administration</h3>
                         <ul class="nav side-menu">
+                           <li>
+                              <a><i class="fa fa-bug"></i> Site <span class="fa fa-chevron-down"></span></a>
+                              <ul class="nav child_menu">
+                                 <li><a href="#">Treeview</a></li>
+                                 <li><a href="#">Editor</a></li>
+                                 <li><a href="#">Preview</a></li>
+                              </ul>
+                           </li>
                            <li>
                               <a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
                               <ul class="nav child_menu">

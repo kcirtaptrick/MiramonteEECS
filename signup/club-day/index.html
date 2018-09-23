@@ -11,11 +11,10 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 
-
-<body>
+<body> 
   <div class="container">
+    <h1>Miramonte EECS Clubday Signup</h1>
     <form id="form" method="post" action="signup.php" target="_self">
-      <h1>Miramonte EECS Clubday Signup</h1>
       <div class="side">
         <div class="form-group first">
           <input type="text" class="firstname" required/>
@@ -53,26 +52,26 @@
           <div class="sub-button bl"><i class="fab fa-github"></i></div>
           <div class="sub-button br"><i class="fab fa-discord"></i></div>
         </div>
-        <p>Add additional contact information
-          <p>
+        <p>Add additional contact information (at least one, add as many as possible that are regularly checked)</p>
       </div>
-      <!-- <div class="side">
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" /><i class="helper"></i>Computer Science Club
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" /><i class="helper"></i>Maker Club
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" /><i class="helper"></i>Other Club
-        </label>
-      </div>
-    </div> -->
+      <div class="clubs">
+        <header>Select clubs you would like to join: </header>
+        <div class="checkbox gamedev">
+          <label>
+            <input type="checkbox" /><i class="helper"></i>Game Development
+          </label>
+        </div>
+        <div class="checkbox pie">
+          <label>
+            <input type="checkbox" /><i class="helper"></i>Pioneers in Engineering (PiE, Robotics competition)
+          </label>
+        </div>
+        <div class="checkbox cs">
+          <label>
+            <input type="checkbox" /><i class="helper"></i>Computer Science
+          </label>
+        </div>
+      </div> 
       <div class="form-group">
         <textarea class="a-info"></textarea>
         <label for="textarea" class="control-label">Additional Information</label><i class="bar"></i>
@@ -82,24 +81,19 @@
         <input type="checkbox" /><i class="helper"></i>Checkbox
       </label>
     </div> -->
-    <div class="button-container submit-button">
-    <div class="submit-btn">
-      <div class="submit-text">Submit</div>
-    </div>
-    <div class="submit-progress-bar"></div>
-    <svg class="check-svg" x="0px" y="0px" viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
-      <path class="submit-check st0" d="M2,19.2C5.9,t,9.4,28,9.4,28L23,2"/>
-    </svg>
-  </div>
+      <div class="button-container submit-button">
+        <div class="submit-btn">
+          <div class="submit-text">Submit</div>
+        </div>
+        <div class="submit-progress-bar"></div>
+        <svg class="check-svg" x="0px" y="0px" viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
+          <path class="submit-check st0" d="M2,19.2C5.9,t,9.4,28,9.4,28L23,2"/>
+        </svg>
+      </div>
     </form>
-
   </div>
   <div id="out"></div>
-  <iframe name="php" id="iframe"></iframe>
-  
-
 </body>
 <script type="text/javascript" src="../../default/script.js"></script>
 <script type="text/javascript" src="script.js"></script>
-
 </html>

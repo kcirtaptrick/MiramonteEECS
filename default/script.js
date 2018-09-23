@@ -125,6 +125,9 @@ var templates = {
   <div></div>
   <div class="nav-displace"></div>`
 };
+
+var rootDir = 
+
 //$('.login .group #email').parents('.group').addClass('focused');
 //$('nav#main').css('margin-top', '-100px');
 console.logs = function() {
