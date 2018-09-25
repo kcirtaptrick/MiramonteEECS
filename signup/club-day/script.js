@@ -224,6 +224,7 @@ btnSubmit.click(function(e) {
       PiE: +$('.checkbox.pie input').is(':checked'),
       gameDev: +$('.checkbox.gamedev input').is(':checked'),
       CS: +$('.checkbox.cs input').is(':checked'),
+      maker:  +$('.checkbox.maker input').is(':checked'),
       additionalInfo: $('textarea.a-info').val()
     },
     success: function(msg) {
