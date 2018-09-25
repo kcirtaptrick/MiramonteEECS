@@ -1,5 +1,5 @@
 <?php 
-   $serverID = "u135302168";
+   $serverID = "u407803484";
    $isDev = strpos($_SERVER['HTTP_HOST'], "c9users.io");
    $conn = $isDev ? new mysqli(getenv('IP'), getenv('C9_USER'), "", "c9") : new mysqli("mysql.hostinger.com", serverID + "_admin", "12345trewqWERT", serverId +"_accnt");
    $conn->connect_error && die("Connection failed: " . $conn->connect_error);
