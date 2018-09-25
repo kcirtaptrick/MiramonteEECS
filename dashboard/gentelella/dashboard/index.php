@@ -80,17 +80,14 @@ $userInfo = $conn->query("select * from userInfo where username=\"username\"")->
                         <div class="menu_section active">
                             <h3>General</h3>
                             <ul class="nav side-menu" style="">
-                                <li class="active"><a><i class="fas fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: block;">
-                                        <li class="current-page"><a href="index.html">Dashboard</a></li>
-                                    </ul>
+                                <li><a><i class="fas fa-home"></i> Home </a>
                                 </li>
                                 <li><a><i class="fas fa-user-shield"></i> Administration </a></li>
-                                <li><a><i class="fas fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                                <li class="active"><a><i class="fas fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="form.html">General Form</a></li>
                                         <li><a href="form_advanced.html">Advanced Components</a></li>
-                                        <li><a href="form_validation.html">Form Validation</a></li>
+                                        <li class="current-page"><a href="form_validation.html">Form Validation</a></li>
                                         <li><a href="form_wizards.html">Form Wizard</a></li>
                                         <li><a href="form_upload.html">Form Upload</a></li>
                                         <li><a href="form_buttons.html">Form Buttons</a></li>

@@ -546,5 +546,25 @@
         "gameDev": "0",
         "CS": "0",
         "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
     }
 ]

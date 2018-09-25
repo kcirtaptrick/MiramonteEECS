@@ -230,7 +230,7 @@ btnSubmit.click(function(e) {
       console.log(`success: ${msg}`);
       $('.container').append(`<div style="margin-top: 10rem">${msg}</div>`);
       
-      setTimeout(() => {checkTimeline.play()}, 3500);
+      // setTimeout(() => {checkTimeline.play()}, 3500);
     },
     error: (e) => {
       console.log('error: ');
