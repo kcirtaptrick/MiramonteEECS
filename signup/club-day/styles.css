@@ -7,6 +7,7 @@ textarea,
 body * {
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+  /*background: black;*/
 }
 body::after, body::before,
 input::after,
@@ -22,32 +23,8 @@ body *::before {
 body {
   background-color: #eee !important;
 }
-.form-group.school-email {
-  margin: 2em 1em;
-}
-.form-group.school-email * {
-  display: inline-block;
-}
-.form-group.school-email label {
-  color: black;
-  word-wrap: break-word;
-} 
-.form-group.school-email p {
-  cursor: pointer;
+iframe {
   display: none;
-  color: white;
-}
-.form-group.school-email p i {
-  background: #af0;
-  padding: 0.2em 0.5em 0.2em 0.3em;
-  border-radius: 0.2em;
-  margin-right: 0.5em;
-  margin-left: 1em
-}
-.form-group.school-email p span {
-  background: #0af;
-  padding: 0.2em 0.5em;
-  border-radius: 0.2em;
 }
 h1 {
   font-size: 2rem;
@@ -58,6 +35,14 @@ h1 {
 textarea {
   margin-top: 2em;
 }
+fieldset {
+  margin: 0 0 3rem;
+  padding: 0;
+  border: none;
+}
+
+
+/*---------------------------- Form Body ----------------------------*/
 .container {
   position: relative;
   max-width: 70rem;
@@ -110,11 +95,6 @@ textarea {
 }
 .side.discord .form-group.tag input {
   letter-spacing: .1em;
-}
-fieldset {
-  margin: 0 0 3rem;
-  padding: 0;
-  border: none;
 }
 .contact-info .contact {
   margin: 2em 0;
@@ -281,6 +261,33 @@ input[type=submit] {
   width: 100%;
   left: 0;
 }
+.form-group.school-email {
+  margin: 2em 1em;
+}
+.form-group.school-email * {
+  display: inline-block;
+}
+.form-group.school-email label {
+  color: black;
+  word-wrap: break-word;
+} 
+.form-group.school-email p {
+  cursor: pointer;
+  display: none;
+  color: white;
+}
+.form-group.school-email p i {
+  background: #af0;
+  padding: 0.2em 0.5em 0.2em 0.3em;
+  border-radius: 0.2em;
+  margin-right: 0.5em;
+  margin-left: 1em
+}
+.form-group.school-email p span {
+  background: #0af;
+  padding: 0.2em 0.5em;
+  border-radius: 0.2em;
+}
 
 .checkbox label,
 .form-radio label {
@@ -347,8 +354,14 @@ input[type=submit] {
   color: #337ab7;
 }
 
+.clubs {
+  padding: 3rem 0;
+}
+.clubs header {
+  margin: 0 0 2rem 1rem;
+}
 .checkbox {
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 .checkbox .helper {
@@ -411,11 +424,6 @@ input[type=submit] {
           transition-delay: 0.28s;
 }
 
-.radio + .radio,
-.checkbox + .checkbox {
-  margin-top: 1rem;
-}
-
 .has-error .legend.legend, .has-error.form-group .control-label.control-label {
   color: #d9534f;
 }
@@ -475,7 +483,7 @@ input[type=submit] {
   -webkit-transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
   transition: opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
   transition: transform 1.12s ease, opacity 0.28s ease 0.364s;
-  transition: transform 1.12s ease, opacity 0.28s ease 0.364s, -webkit-transform 1.12s ease;
+  transition: transform 1.12s ease, opacity 0.28s ease 0.364s, -webkit-tranchecksform 1.12s ease;
   -webkit-transform: translate(-50%, -50%) scale(1);
           transform: translate(-50%, -50%) scale(1);
   opacity: 0;
@@ -485,30 +493,16 @@ input[type=submit] {
 }
 
 
-
-
-
-
-
-body {
-  background: black;
-}
+/*---------------------------- Add Button ----------------------------*/
 :root {
   --speed: 0.7;
 }
-
 .add-contact p {
   display: inline-block;
   margin-left: 1em;
 }
 .add-contact .add-button .sub-button i {
   transform: scale(2);
-}
-
-
-body {
-    padding: 0;
-    margin: 0;
 }
 .add-button {
   position: absolute;
@@ -527,21 +521,16 @@ body {
   font-size: 28px;
   color: rgba(255,255,255,1);
 }
-
 .add-button:before {
   position: relative;
   z-index: 100;
   content:"+";
 }
-
-
-
-.add-button:hover {
+.add-contact:hover .add-button {
   transition-duration: calc(0.5s * var(--speed));
   color: rgba(255,255,255,0);
   transform: rotate(45deg);
 }
-
 .sub-button {
   transition-duration: 0.5s;
   position: absolute;
@@ -584,70 +573,55 @@ body {
 .sub-button:hover {
   cursor: pointer;
 }
-
 .tl {
   top: 0;
   left: 0;
   border-radius: 28px 0 0 0;
 }
-
 .tr {  
   top: 0;
   right: 0;
   border-radius: 0 28px 0 0;
 }
-
 .bl {
   bottom: 0;
   left: 0; 
   border-radius: 0 0 0 28px;
 }
-
 .br { 
   bottom: 0;
   right: 0;
   border-radius: 0 0 28px 0;
 }
-
-
 .tl:before {
 }
-
 .tr:before {
 }
-
 .bl:before {
 }
-
 .br:before {
 }
-
-
 .add-contact .add-button ~ p {
   -webkit-animation: in calc(1s * var(--speed));
 }
-
-.add-contact .add-button:hover ~ p {
+.add-contact:hover p {
   -webkit-animation: out calc(1s * var(--speed));
   transform: translateX(35px);
 }
-
 @-webkit-keyframes out {
     from   {transform: translateX(0px); }
     to { transform: translateX(35px);}
 }
-
 @-webkit-keyframes in {
     0%   { transform: translateX(35px); }
     100% { transform: translateX(0px); }
 }
-.add-button:hover .sub-button {
+.add-contact:hover .sub-button {
   width: 48px;
   height: 48px;
   transform: rotate(-45deg);
-  
   color: rgba(255,255,255,1);
-  -webkit-transition: top calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
+  -webkit-transition: top calc(.4s * var(--speed)) cubic-bezier(0.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
     left calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
     bottom calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
     right calc(.4s * var(--speed)) cubic-bezier(.58,-0.37,.45,1.46) calc(.4s * var(--speed)),
@@ -675,39 +649,29 @@ body {
     transform calc(.3s * var(--speed)) ease calc(.8s * var(--speed)),
     border-radius calc(.4s * var(--speed))  ease calc(.6s * var(--speed));
 }
-
-.add-button:hover .tl {
+.add-contact:hover .tl {
   top: -25px;
   left: -25px;
   border-radius: 28px;
 }
-
-.add-button:hover .tr {  
+.add-contact:hover .tr {  
   top: -25px;
   right: -25px;
   border-radius: 28px;
 }
-
-.add-button:hover .bl {
+.add-contact:hover .bl {
   bottom: -25px;
   left: -25px; 
   border-radius: 28px;
 }
-
-.add-button:hover .br { 
+.add-contact:hover .br { 
   bottom: -25px;
   right: -25px;
   border-radius: 28px;
 }
 
 
-
-
-
-
-
-
-
+/*---------------------------- Submit Button ----------------------------*/
 .submit-button {
   margin-top: 7em;
 }
@@ -757,9 +721,16 @@ body {
   cursor: pointer;
 }
 .submit-button .submit-check {
+  z-index: 10;
   fill: none;
   stroke: #FFFFFF;
   stroke-width: 3;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+
+/*---------------------------- Reset Animation ----------------------------*/
+.container.animate {
+  
 }

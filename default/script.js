@@ -125,13 +125,20 @@ var templates = {
   <div></div>
   <div class="nav-displace"></div>`
 };
+
+var rootDir = 
+
 //$('.login .group #email').parents('.group').addClass('focused');
 //$('nav#main').css('margin-top', '-100px');
-
+console.logs = function() {
+  for(var log of arguments) {
+    console.log(log);
+  }
+}
 $(document).ready(() => {
 
   $(window).scroll(() => {
-    // console.log(`window.scrollTop(): ${$(window).scrollTop()}, ul.scrollTop(): ${$('nav#main ul').scrollTop()}, header.outherHeight(): ${$('nav#main header').outerHeight()}`)
+    // console.logs(`window.scrollTop(): ${$(window).scrollTop()}, ul.scrollTop(): ${$('nav#main ul').scrollTop()}, header.outherHeight(): ${$('header.main').outerHeight()}`)
     if ($(window).scrollTop() < $('header.main').outerHeight()) {
       $('nav#main ul').css('margin-top', `${-$(window).scrollTop()}px`);
     //   console.log($('nav#main').css('margin-top'));

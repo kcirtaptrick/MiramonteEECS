@@ -1,28 +1,570 @@
-[{
-  firstname: "first",
-  lastname: "last",
-  age: "17",
-  grade: "12",
-  schoolEmail: "first.lastyy@auhsdschools.org",
-  contactInfo: [{
-    type: "email",
-    contact: "firstlast@gmail.com"
-  }, {
-    type: "phone",
-    contact: "1234567890"
-  }, {
-    type: "discord",
-    contact: "first last#1234"
-  }, {
-    type: "git",
-    contact: "https://github.com/username"
-  }],
-  clubs: {
-    pie: true,
-    gamedev: true,
-    maker: true,
-    cs: true,
-    not: false
-  },
-  additionalInfo: ""
-}]
+[
+    {
+        "firstname": "hello",
+        "lastname": "last",
+        "age": "17",
+        "grade": "12",
+        "schoolEmail": "first.lastyy@auhsdschools.org",
+        "contactInfo": [
+            {
+                "type": "email",
+                "contact": "firstlast@gmail.com"
+            },
+            {
+                "type": "phone",
+                "contact": "1234567890"
+            },
+            {
+                "type": "discord",
+                "contact": "first last#1234"
+            },
+            {
+                "type": "git",
+                "contact": "https:\/\/github.com\/username"
+            }
+        ],
+        "clubs": {
+            "pie": true,
+            "gamedev": true,
+            "maker": true,
+            "cs": true,
+            "not": false
+        },
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "contact": [
+            {
+                "type": "email",
+                "contact": ""
+            },
+            {
+                "type": "phone",
+                "contact": ""
+            },
+            {
+                "type": "discord",
+                "contact": ""
+            },
+            {
+                "type": "git",
+                "contact": ""
+            }
+        ],
+        "PiE": "1",
+        "gameDev": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "contact": [
+            {
+                "type": "git",
+                "contact": ""
+            },
+            {
+                "type": "discord",
+                "contact": "Discord Username#1234"
+            }
+        ],
+        "PiE": "1",
+        "gameDev": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "\"",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": ".@auhsdschools.org",
+        "PiE": "1",
+        "gameDev": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "1",
+        "gameDev": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "patrick",
+        "lastname": "wang",
+        "grade": "12",
+        "schoolEmail": "patrick.wang19@auhsdschools.org",
+        "contact": [
+            {
+                "type": "email",
+                "contact": "patrick.bohan.wang@gmail.com"
+            },
+            {
+                "type": "email",
+                "contact": "patrickbwang3@gmail.com"
+            },
+            {
+                "type": "phone",
+                "contact": "(925) 528-1912"
+            },
+            {
+                "type": "discord",
+                "contact": "Patrick Wang#0229"
+            },
+            {
+                "type": "git",
+                "contact": "https:\/\/github.com\/kcirtaptrick"
+            }
+        ],
+        "PiE": "1",
+        "gameDev": "0",
+        "additionalInfo": "None"
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "1",
+        "gameDev": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "1",
+        "gameDev": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "true",
+        "gameDev": "true",
+        "CS": "false",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "true",
+        "gameDev": "true",
+        "CS": "false",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "true",
+        "gameDev": "true",
+        "CS": "false",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "true",
+        "gameDev": "true",
+        "CS": "false",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "true",
+        "gameDev": "true",
+        "CS": "false",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "true",
+        "gameDev": "false",
+        "CS": "true",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "false",
+        "gameDev": "true",
+        "CS": "true",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "1",
+        "gameDev": "1",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "3",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "3",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "127",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "128",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "Patrick",
+        "lastname": "Wang",
+        "grade": "12",
+        "schoolEmail": "patrick.wang19@auhsdschools.org",
+        "contact": [
+            {
+                "type": "email",
+                "contact": "patrick.bohan.wang@gmail.com"
+            },
+            {
+                "type": "email",
+                "contact": "patrickbwang3@gmail.com"
+            },
+            {
+                "type": "phone",
+                "contact": "+1 (925) 528-1912"
+            },
+            {
+                "type": "discord",
+                "contact": "Patrick Wang#0229"
+            },
+            {
+                "type": "git",
+                "contact": "https:\/\/github.com\/kcirtaptrick"
+            }
+        ],
+        "PiE": "128",
+        "gameDev": "1",
+        "CS": "1",
+        "additionalInfo": "None"
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "true",
+        "gameDev": "true",
+        "CS": "false",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "true",
+        "gameDev": "true",
+        "CS": "false",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "true",
+        "gameDev": "true",
+        "CS": "false",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "false",
+        "gameDev": "false",
+        "CS": "true",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "false",
+        "gameDev": "false",
+        "CS": "false",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "1",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "1",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "1",
+        "gameDev": "1",
+        "CS": "1",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    },
+    {
+        "firstname": "",
+        "lastname": "",
+        "grade": "Select",
+        "schoolEmail": "",
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "additionalInfo": ""
+    }
+]
