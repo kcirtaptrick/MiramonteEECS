@@ -68,7 +68,7 @@ $('.form-group.school-email p span').click(() => {
   $('.form-group.school-email').html(`<input type="text" class="school-email" value="${get.schoolEmail()}" required="required"/><label for="input" class="control-label">School Email</label>
 <i class="bar"></i>`);
   $('.form-group.school-email input').select();
-  $('.form-group.school-email label').css('color', '#808080');
+  $('.form-group.school-email label').addClass('in');
 });
 
 
@@ -138,7 +138,7 @@ var containerTimeline = anime.timeline({
   autoplay: false
 })
 
-var pathEls = $(".submit-button .submit-check");
+var pathEls = $("#submit-check");
 for (var i = 0; i < pathEls.length; i++) {
   var pathEl = pathEls[i];
   var offset = anime.setDashoffset(pathEl);
@@ -187,55 +187,110 @@ basicTimeline
     easing: "easeInOutSine"
   });
 
-containerTimeline
-  .add({
-    targets: ".container",
-    duration: 1000,
-    transform: "translateX(100vw)"
-  })
-
 
 var btnSubmit = $(".submit-button .submit-btn, .submit-button .submit-text, .submit-button .check-svg");
 console.log(document.querySelector('input.school-email'));
 
 btnSubmit.click(function(e) {
-  btnSubmit.css("pointer-events", "none");
-  console.log(`text: ${$('.form-group.school-email span.email').text()}`);
-  basicTimeline.play();
-  
-  setTimeout(() => {
-    btnSubmit.css("pointer-events", "");
-    $('.contact-info').html('');
-    $('#form').trigger('reset');
-    $('container').css({
-      "transform": "translateX(100px)"
+  var contacts = getContacts();
+  $('input').on('change', () => {
+    checkError();
+  })
+  if(checkError()) {
+    btnSubmit.css("pointer-events", "none");
+    console.log(`text: ${$('.form-group.school-email span.email').text()}`);
+    basicTimeline.play();
+    
+    setTimeout(() => {
+      reset();
+    }, 5000);
+    console.log();
+    $.ajax({
+      url: 'signup.php',
+      type: 'POST',
+      data: {
+        firstname: $('input.firstname').val(),
+        lastname: $('input.lastname').val(),
+        age: $('input.age').val(),
+        grade: $('select.grade').val(),
+        schoolEmail: document.querySelector('input.school-email') ? $('input.school-email').val() : $('.form-group.school-email span.email').text(),
+        contact: contacts,
+        PiE: +$('.checkbox.pie input').is(':checked'),
+        gameDev: +$('.checkbox.gamedev input').is(':checked'),
+        CS: +$('.checkbox.cs input').is(':checked'),
+        maker:  +$('.checkbox.maker input').is(':checked'),
+        additionalInfo: $('textarea.a-info').val()
+      },
+      success: function(msg) {
+        $('#counter').html(`Number of Signups: ${msg}`);
+        
+        // setTimeout(() => {checkTimeline.play()}, 3500);
+      },
+      error: (e) => {
+        console.log('error: ');
+        console.log(e);
+      }
     });
-  }, 5000);
-  
-  $.ajax({
-    url: 'signup.php',
-    type: 'POST',
-    data: {
-      firstname: $('input.firstname').val(),
-      lastname: $('input.lastname').val(),
-      grade: $('select.grade').val(),
-      schoolEmail: document.querySelector('input.school-email') ? $('input.school-email').val() : $('.form-group.school-email span.email').text(),
-      contact: getContacts(),
-      PiE: +$('.checkbox.pie input').is(':checked'),
-      gameDev: +$('.checkbox.gamedev input').is(':checked'),
-      CS: +$('.checkbox.cs input').is(':checked'),
-      maker:  +$('.checkbox.maker input').is(':checked'),
-      additionalInfo: $('textarea.a-info').val()
-    },
-    success: function(msg) {
-      console.log(`success: ${msg}`);
-      $('.container').append(`<div style="margin-top: 10rem">${msg}</div>`);
-      
-      // setTimeout(() => {checkTimeline.play()}, 3500);
-    },
-    error: (e) => {
-      console.log('error: ');
-      console.log(e);
+  }
+  function reset() {
+      btnSubmit.css("pointer-events", "");
+      $('.contact-info').html('');
+      $('#form').trigger('reset');
+      $('container').css({
+        "transform": "translateX(100px)"
+      });
+      $('.form-group.school-email label').removeClass('in');
+      $('.form-group.school-email').html(`<label>School Email: <span class="email" name="school-emailin"></span></label>
+        <p><span>Change</span></p>`);
+      basicTimeline.restart();
+      basicTimeline.pause();
+      $('.form-group.school-email p span').click(() => {
+        $('.form-group.school-email').html(`<input type="text" class="school-email" value="${get.schoolEmail()}" required="required"/><label for="input" class="control-label">School Email</label>
+      <i class="bar"></i>`);
+        $('.form-group.school-email input').select();
+        $('.form-group.school-email label').addClass('in');
+      });
+      $('.has-error').removeClass('has-error');
+      $('html,body').animate({ scrollTop: 0 }, 'slow');
+  }
+  function checkError() {
+    var valid = true;
+    var ins = ['firstname', 'lastname', 'age'];
+    for(let i of ins) {
+      if(!$(`input.${i}`).val()) {
+        valid = false;
+        $(`input.${i}`).parent().addClass('has-error');
+      } else {
+        $(`input.${i}`).parent().removeClass('has-error');
+      }
     }
-  });
+    if($('input.school-email').length && !$('input.school-email').val()) {
+      valid = false;
+      $(`input.school-email`).parent().addClass('has-error');
+    } else {
+      $(`input.school-email`).parent().removeClass('has-error');
+    }
+    if($(`select.grade`).val() == 'Select') {
+      valid = false;
+      $(`select.grade`).parent().addClass('has-error');
+    } else {
+      $(`select.grade`).parent().removeClass('has-error');
+    }
+    console.log(!contacts.length);
+    if(!contacts.length) {
+      valid = false;
+      $('#error').css('display', 'block');
+    } else {
+      $('#error').css('display', 'none');
+      for(let i in contacts) {
+        if(!contacts[i].contact) {
+          valid = false;
+          $($('.contact-info .contact')[i]).find('.form-group').addClass('has-error');
+        } else {
+          $($('.contact-info .contact')[i]).find('.form-group').removeClass('has-error');
+        }
+      }
+    }
+    return valid;
+  }
 });

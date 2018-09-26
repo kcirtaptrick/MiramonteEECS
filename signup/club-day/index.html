@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Home</title>
+  <title>Clubday Signup</title>
   <link rel="shortcut icon" type="image/png" href="/Miramonte-EECS.square.png" />
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" type="text/css" href="../../default/styles.css">
@@ -12,6 +12,9 @@
 </head>
 
 <body> 
+  <header id="counter">
+    Number of Signups: 
+  </header>
   <div class="container">
     <h1>Miramonte EECS Clubday Signup</h1>
     <form id="form">
@@ -25,7 +28,7 @@
           <label for="input" class="control-label">Lastname</label><i class="bar"></i>
         </div>
         <div class="form-group number age">
-          <input type="number" name="age" required/>
+          <input type="number" class="age" required/>
           <label for="input" class="control-label">Age</label><i class="bar"></i>
         </div>
         <div class="form-group grade" style="width: 5em">
@@ -41,7 +44,7 @@
       </div>
       <div class="form-group school-email">
         <label>School Email: <span class="email" name="school-emailin"></span></label>
-        <p><i>&#10004;</i><span>Change</span></p>
+        <p><!--<i>&#10004;</i>--><span>Change</span></p>
       </div>
       <div class="contact-info">
       </div>
@@ -49,7 +52,7 @@
         <div class="add-button">
           <div class="sub-button tl"><i class="fa fa-envelope"></i></div>
           <div class="sub-button tr"><i class="fa fa-phone"></i></div>
-          <div class="sub-button bl"><i class="fab fa-github"></i></div>
+          <div class="sub-button bl"><i class="fab fa-git-square"></i></div>
           <div class="sub-button br"><i class="fab fa-discord"></i></div>
         </div>
         <p>Add additional contact information (at least one, add as many as possible that are regularly checked)</p>
@@ -81,18 +84,14 @@
         <textarea class="a-info"></textarea>
         <label for="textarea" class="control-label">Additional Information</label><i class="bar"></i>
       </div>
-      <!-- <div class="checkbox">
-      <label>
-        <input type="checkbox" /><i class="helper"></i>Checkbox
-      </label>
-    </div> -->
+      <p id="error">*Add at least one additional contact</p>
       <div class="button-container submit-button">
         <div class="submit-btn">
           <div class="submit-text">Submit</div>
         </div>
         <div class="submit-progress-bar"></div>
         <svg class="check-svg" x="0px" y="0px" viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
-          <path class="submit-check st0" d="M2,19.2C5.9,t,9.4,28,9.4,28L23,2"/>
+          <path id="submit-check" class="submit-check st0" d="M2,19.2C5.9,t,9.4,28,9.4,28L23,2"/>
         </svg>
       </div>
     </form>

@@ -41,6 +41,13 @@ fieldset {
   border: none;
 }
 
+#counter {
+  text-align: center;
+  color: #0af;
+  margin: 1em 0 -2em 0;
+  font-size: 30px;
+  font-weight: 900;
+}
 
 /*---------------------------- Form Body ----------------------------*/
 .container {
@@ -198,6 +205,23 @@ input[type=submit] {
   transition: left 0.28s ease, width 0.28s ease;
   z-index: 2;
 }
+.form-group.school-email label.in ~ .bar {
+  position: relative;
+  border-bottom: 0.0625rem solid #999;
+  display: block;
+}
+.form-group.school-email label.in ~ .bar:brfore {
+  content: '';
+  height: 0.125rem;
+  width: 0;
+  left: 50%;
+  bottom: -0.0625rem;
+  position: absolute;
+  background: #0af;
+  -webkit-transition: left 0.28s ease, width 0.28s ease;
+  transition: left 0.28s ease, width 0.28s ease;
+  z-index: 2;
+}
 .form-group input,
 .form-group textarea {
   display: block;
@@ -271,6 +295,12 @@ input[type=submit] {
   color: black;
   word-wrap: break-word;
 } 
+.form-group.school-email label.in {
+  font-size: 0.8rem;
+  color: gray;
+  top: -1rem;
+  left: 0;
+}
 .form-group.school-email p {
   cursor: pointer;
   display: none;
@@ -287,6 +317,10 @@ input[type=submit] {
   background: #0af;
   padding: 0.2em 0.5em;
   border-radius: 0.2em;
+}
+.form-group.school-email input {
+  color: black;
+  font-size: 1rem;
 }
 
 .checkbox label,
@@ -439,7 +473,12 @@ input[type=submit] {
   left: 0;
   width: 100%;
 }
-
+#error {
+  color: red;
+  text-align: center;
+  margin: 3rem 0 -3rem 0;
+  display: none;
+}
 .button {
   position: relative;
   background: currentColor;
