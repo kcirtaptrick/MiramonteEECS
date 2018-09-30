@@ -1,5 +1,5 @@
 <?php 
-require '../../../../default/require.php';
+require '../../default/require.php';
 $conn = connect();
 $userInfo = $conn->query("select * from userInfo where username=\"username\"")->fetch_assoc();
 ?>
