@@ -1253,5 +1253,23 @@
         "CS": "0",
         "maker": "0",
         "additionalInfo": ""
+    },
+    {
+        "firstname": "a",
+        "lastname": "a",
+        "age": "1",
+        "grade": "10",
+        "schoolEmail": "function substring() { [native code] }.function substring() { [native code] }21@auhsdschools.org",
+        "contact": [
+            {
+                "type": "email",
+                "contact": "a"
+            }
+        ],
+        "PiE": "0",
+        "gameDev": "0",
+        "CS": "0",
+        "maker": "0",
+        "additionalInfo": ""
     }
 ]

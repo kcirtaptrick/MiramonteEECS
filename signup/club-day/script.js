@@ -24,10 +24,10 @@ var group = (group) => {
 
 var format = {
   name: (name) => {
-    return name.replace(/[^a-zA-Z ,.'-]+/g, '');
+    return name.replace(/[^a-zA-Z ,.'-]+/g, '').length > 30 ? name.replace(/[^a-zA-Z ,.'-]+/g, '').substring(0,30) : name.replace(/[^a-zA-Z ,.'-]+/g, '');
   },
   mailName: (name) => {
-    return name.toLowerCase().replace(/[^a-z]/, '');
+    return name.toLowerCase().replace(/[^a-z]/, '').substring;
   },
   number: (num) => {
     return num.toString().replace(/[^0-9]/g, '');
