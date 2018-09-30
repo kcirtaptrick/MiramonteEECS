@@ -1,10 +1,8 @@
 <?php 
-   $serverID = "u407803484";
-   $isDev = strpos($_SERVER['HTTP_HOST'], "c9users.io");
-   $conn = $isDev ? new mysqli(getenv('IP'), getenv('C9_USER'), "", "c9") : new mysqli("mysql.hostinger.com", serverID + "_admin", "12345trewqWERT", serverId +"_accnt");
-   $conn->connect_error && die("Connection failed: " . $conn->connect_error);
-   $userInfo = $conn->query("select * from userInfo where username=\"username\"")->fetch_assoc();
-   ?>
+require '../../../../default/require.php';
+$conn = connect();
+$userInfo = $conn->query("select * from userInfo where username=\"username\"")->fetch_assoc();
+?>
 <html lang="en" class=" ">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,22 +12,22 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Dashboard</title>
       <!-- Bootstrap -->
-      <link href="../../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="../../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
       <!-- Font Awesome -->
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
       <!-- NProgress -->
-      <link href="../../../vendors/nprogress/nprogress.css" rel="stylesheet">
+      <link href="../../vendors/nprogress/nprogress.css" rel="stylesheet">
       <!-- iCheck -->
-      <link href="../../../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+      <link href="../../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
       <!-- bootstrap-progressbar -->
-      <link href="../../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+      <link href="../../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
       <!-- JQVMap -->
-      <link href="../../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet">
+      <link href="../../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet">
       <!-- bootstrap-daterangepicker -->
-      <link href="../../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+      <link href="../../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
       <!-- Custom Theme Style -->
-      <link href="../../../build/css/custom.min.css" rel="stylesheet">
+      <link href="../../build/css/custom.min.css" rel="stylesheet">
       <style>
          .menu_fixed::-webkit-scrollbar {
             width: 0px; 
@@ -61,109 +59,6 @@
          .nav-sm .nav_title img {
             width: 46;
          }
-         #page-editor header{
-            font-size: 2rem;
-            text-align: center;
-         }
-         #page-editor .btns {
-            margin-top: 0.3em;
-            float: right;
-         }
-         #page-editor .btns btn {
-            border: 1px solid #bbb;
-            border-radius: 5px;
-            padding: 0.45em 1em;
-         }
-         #page-editor .x_content {
-            display: flex;
-         }
-         #tree-view {
-             overflow: hidden;
-         }
-         #tree-view header {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            text-align: left;
-         }
-         #tree-view .tree, #tree-view .tree ul {
-             margin:0;
-             padding:0;
-             list-style:none
-         }
-         #tree-view .tree ul {
-             margin-left:1em;
-             position:relative
-         }
-         #tree-view .tree ul ul {
-             margin-left:.5em
-         }
-         #tree-view .tree ul:before {
-             content:"";
-             display:block;
-             width:0;
-             position:absolute;
-             top:0;
-             bottom:0;
-             left:0;
-             border-left:1px solid
-         }
-         #tree-view li {
-             margin:0;
-             padding:0 1em;
-             line-height:2em;
-             font-weight:700;
-             position:relative;
-             white-space: nowrap;
-         }
-         #tree-view .tree ul li:before {
-             content:"";
-             display:block;
-             width:10px;
-             height:0;
-             border-top:1px solid;
-             margin-top:-1px;
-             position:absolute;
-             top:1em;
-             left:0
-         }
-         #tree-view .tree ul li:last-child:before {
-             background: #fff;
-             height:auto;
-             top:1em;
-             bottom:0
-         }
-         #tree-view .indicator {
-             margin-right:0.7rem;
-         }
-         #tree-view .tree li a {
-             text-decoration: none;
-         }
-         #tree-view .tree li button, #tree-view .tree li button:active, #tree-view .tree li button:focus {
-             text-decoration: none;
-             border:none;
-             background:transparent;
-             margin: 0;
-             padding: 0;
-             outline: 0;
-         }
-         #tree-view ul {
-            list-style: none;
-         }
-         #tree-view ul, #tree-view li {
-            cursor: pointer;
-            list-style: none;
-         }
-         #page-editor .file {
-            /*width: 80%;*/
-         }
-         #page-editor .file header {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-         }
-         #ace-editor {
-            height: 80vh;
-            width: 100%;
-         }
       </style>
    </head>
    <body class="nav-md">
@@ -172,7 +67,7 @@
             <div class="col-md-3 left_col menu_fixed">
                <div class="left_col scroll-view">
                   <div class="navbar nav_title" style="border: 0;">
-                     <a href="index.html" class="site_title"><img src="../../../../../Miramonte-EECS(white_background).png"/></i> <span> Dashboard</span></a>
+                     <a href="index.html" class="site_title"><img src="../../../../Miramonte-EECS(white_background).png"/></i> <span> Dashboard</span></a>
                   </div>
                   <div class="clearfix"></div>
                   <!-- menu profile quick info -->
@@ -192,7 +87,7 @@
                      <div class="menu_section active">
                         <h3>General</h3>
                         <ul class="nav side-menu" style="">
-                           <li>
+                           <li class="active current-page">
                               <a><i class="fas fa-home"></i> Home </a>
                            </li>
                            <!--<li><a href="../"><i class="fas fa-user-shield"></i> Administration </a></li>-->
@@ -276,11 +171,11 @@
                      <div class="menu_section">
                         <h3>Administration</h3>
                         <ul class="nav side-menu">
-                           <li class="active">
-                              <a><i class="fa fa-file"></i> Site <span class="fa fa-chevron-down"></span></a>
+                           <li>
+                              <a><i class="fa fa-bug"></i> Site <span class="fa fa-chevron-down"></span></a>
                               <ul class="nav child_menu">
                                  <li><a href="#">Treeview</a></li>
-                                 <li class="current-page"><a href="#">Editor</a></li>
+                                 <li><a href="#">Editor</a></li>
                                  <li><a href="#">Preview</a></li>
                               </ul>
                            </li>
@@ -446,101 +341,50 @@
             <!-- page content -->
             <div class="right_col" role="main" style="min-height: 1875px;">
                <!-- top tiles -->
-               <div class="x_panel" id="page-editor">
-                  <div class="x_title">
-                     <div class="btns">
-                        <btn style="background: #0e0; color: white">Save</btn>
-                        <btn style="background: #f00; color: white">Discard</btn>
-                     </div>
-                     <header>Edit Page</header>
-                     
-                  </div>
-                  <div class="x_content">
-                     <div id="tree-view">
-                        <header>Tree View</header>
-                        <?php
-                        function treeView($root) {
-                           
-                           echo '<li class="first">'. preg_replace("/.*\//", "", $root) .'<ul>';
-                           getTree($root);
-                           echo '</ul></li>';
-                        
-                           
-                        }
-                        function getTree($dir){
-                            $tree = scandir($dir);
-                            echo '<ul>';
-                            foreach($tree as $fileFolder){
-                                if($fileFolder != '.' && $fileFolder != '..'){
-                                    if(!is_dir($dir.'/'.$fileFolder)){
-                                        echo '<li data-path="'.$dir.'/'.$fileFolder.'">'.$fileFolder;
-                                    } else {
-                                        echo '<li>'.$fileFolder;
-                                        getTree($dir.'/'.$fileFolder);
-                                    }
-                                    echo '</li>';
-                                }
-                            }
-                            echo '</ul>';
-                        }
-                        treeView('/home/ubuntu/workspace/clubs');
-                        ?>
-                     </div>
-                     <div class="file">
-                        <header>New File</header>
-                        <div id="ace-editor"></div>
-                     </div>
-                  </div>
-               </div>
             </div>
             <!-- /page content -->
          </div>
       </div>
       <!-- jQuery -->
       <script async="" src="https://www.google-analytics.com/analytics.js"></script>
-      <script src="../../../vendors/jquery/dist/jquery.min.js"></script>
+      <script src="../../vendors/jquery/dist/jquery.min.js"></script>
       <!-- Bootstrap -->
-      <script src="../../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
       <!-- FastClick -->
-      <script src="../../../vendors/fastclick/lib/fastclick.js"></script>
+      <script src="../../vendors/fastclick/lib/fastclick.js"></script>
       <!-- NProgress -->
-      <script src="../../../vendors/nprogress/nprogress.js"></script>
+      <script src="../../vendors/nprogress/nprogress.js"></script>
       <!-- Chart.js -->
-      <script src="../../../vendors/Chart.js/dist/Chart.min.js"></script>
+      <script src="../../vendors/Chart.js/dist/Chart.min.js"></script>
       <!-- gauge.js -->
-      <script src="../../../vendors/gauge.js/dist/gauge.min.js"></script>
+      <script src="../../vendors/gauge.js/dist/gauge.min.js"></script>
       <!-- bootstrap-progressbar -->
-      <script src="../../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+      <script src="../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
       <!-- iCheck -->
-      <script src="../../../vendors/iCheck/icheck.min.js"></script>
+      <script src="../../vendors/iCheck/icheck.min.js"></script>
       <!-- Skycons -->
-      <script src="../../../vendors/skycons/skycons.js"></script>
+      <script src="../../vendors/skycons/skycons.js"></script>
       <!-- Flot -->
-      <script src="../../../vendors/Flot/jquery.flot.js"></script>
-      <script src="../../../vendors/Flot/jquery.flot.pie.js"></script>
-      <script src="../../../vendors/Flot/jquery.flot.time.js"></script>
-      <script src="../../../vendors/Flot/jquery.flot.stack.js"></script>
-      <script src="../../../vendors/Flot/jquery.flot.resize.js"></script>
+      <script src="../../vendors/Flot/jquery.flot.js"></script>
+      <script src="../../vendors/Flot/jquery.flot.pie.js"></script>
+      <script src="../../vendors/Flot/jquery.flot.time.js"></script>
+      <script src="../../vendors/Flot/jquery.flot.stack.js"></script>
+      <script src="../../vendors/Flot/jquery.flot.resize.js"></script>
       <!-- Flot plugins -->
-      <script src="../../../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-      <script src="../../../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-      <script src="../../../vendors/flot.curvedlines/curvedLines.js"></script>
+      <script src="../../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+      <script src="../../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+      <script src="../../vendors/flot.curvedlines/curvedLines.js"></script>
       <!-- DateJS -->
-      <script src="../../../vendors/DateJS/build/date.js"></script>
+      <script src="../../vendors/DateJS/build/date.js"></script>
       <!-- JQVMap -->
-      <script src="../../../vendors/jqvmap/dist/jquery.vmap.js"></script>
-      <script src="../../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-      <script src="../../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+      <script src="../../vendors/jqvmap/dist/jquery.vmap.js"></script>
+      <script src="../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+      <script src="../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
       <!-- bootstrap-daterangepicker -->
-      <script src="../../../vendors/moment/min/moment.min.js"></script>
-      <script src="../../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-      <!-- split.js -->
-      <script src="split.js"></script>
-      <!-- ace editor -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ace.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.1/ext-modelist.js"></script>
+      <script src="../../vendors/moment/min/moment.min.js"></script>
+      <script src="../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
       <!-- Custom Theme Scripts -->
-      <script src="../../../build/js/custom.js"></script>
+      <script src="../../build/js/custom.js"></script>
       <div class="jqvmap-label" style="display: none;"></div>
       <div class="daterangepicker dropdown-menu ltr opensleft">
          <div class="calendar left">

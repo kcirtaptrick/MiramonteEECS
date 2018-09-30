@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+require 'default/require.php';
+?>
 <html>
 <head>
   <title>Home</title>
@@ -11,9 +13,11 @@
 
 <body>
     <header class="main"><img src="Miramonte-EECS.png" /></header>
-    <nav id="main"></nav>
-    <div class="login"></div>
+    <?php
+    getModule('nav');
+    getModule('login');
+    ?>
 </body>
-<script type="text/javascript" src="script.js"></script>
 <script type="text/javascript" src="default/script.js"></script>
+<script type="text/javascript" src="script.js"></script>
 </html>

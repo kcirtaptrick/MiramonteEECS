@@ -5,7 +5,7 @@ class Image {
         $this->load($filename);
     }
     function load($filename) {
-        $this->type = getimagesize($filename)[2];
+        $this->type = getimagesize($filename) [2];
         switch ($this->type) {
             case IMAGETYPE_JPEG:
                 $this->image = imagecreatefromjpeg($filename);
@@ -18,9 +18,8 @@ class Image {
             break;
         }
     }
-    
-    function save($filename, $image_type = IMAGETYPE_JPEG, $compression = 75, $permissions = null) {
-        switch ($image_type) {
+    function save($filename, $type = IMAGETYPE_JPEG, $compression = 75, $permissions = null) {
+        switch ($type) {
             case IMAGETYPE_JPEG:
                 imagejpeg($this->image, $filename, $compression);
             break;
@@ -35,8 +34,8 @@ class Image {
             chmod($filename, $permissions);
         }
     }
-    function output($image_type = IMAGETYPE_JPEG) {
-        switch ($image_type) {
+    function output($type = IMAGETYPE_JPEG) {
+        switch ($type) {
             case IMAGETYPE_JPEG:
                 header('Content-Type: image/jpeg');
                 imagejpeg($this->image);
@@ -60,28 +59,36 @@ class Image {
     function resizeToHeight($height) {
         $this->resize($this->getWidth() * $height / $this->getHeight(), $height);
     }
+    function resizeToWidth($width) {
+        $this->resize($width, $this->getHeight() * $width / $this->getWidth());
+    }
     function resize($width, $height) {
         $new_image = imagecreatetruecolor($width, $height);
         imagecopyresampled($new_image, $this->image, 0, 0, 0, 0, $width, $height, $this->getWidth(), $this->getHeight());
         $this->image = $new_image;
     }
+    function scale($scale) {
+        $this->resize($this->getWidth() * $this->getHeight() * $scale / 100);
+    }
 }
-// $image = new Image('4ktest.jpg');
-// $image->resizeToHeight(480);
-// $image->output();
-$imgs = scandir('thumbnails');
-// print_r($imgs);
-// echo '<img src="imgs/'.$imgs[2].'" height=480/>';
-// $image = new Image('imgs/'.$imgs[2]);
-// $image->resizeToHeight(480);
-// $image->save('test.jpg');
-for($i = 2; $i < count($imgs); $i++) {
-    // echo 'imgs/'.$imgs[$i];
-    // echo '<img src="imgs/'.$imgs[$i].'" height=150/>';
-    
-    // $img = new Image('imgs/'.$imgs[$i]);
-    // $img->resizeToHeight(480);
-    // $img->save('thumbnails/'.$imgs[$i]);
-    echo '<img src="thumbnails/'.$imgs[$i].'" height=150/>';
+function filterImgs($filename) {
+    return preg_match('/.*(.png|.jpg|.jpeg|.gif)/i', $filename);
 }
+function updateThumbnails($raw_img_dir, $thumb_dir, $thumb_res = 480) {
+    $raw_files = array_filter(scandir($raw_img_dir), "filterImgs");
+    $thumb_files = array_filter(scandir($thumb_dir), "filterImgs");
+    $adds = array_diff($raw_files, $thumb_files);
+    foreach ($adds as $add) {
+        try {
+            $img = new Image($raw_img_dir . '/' . $add);
+            $img->resizeToHeight($thumb_res);
+            $img->save($thumb_dir . '/' . $add);
+        } catch (Exception $e) {}
+    }
+    $dels = array_diff($thumb_files, $raw_files);
+    foreach ($dels as $del) {
+        unlink($thumb_dir . '/' . $del);
+    }
+}
+updateThumbnails('imgs', 'thumbnails');
 ?>
