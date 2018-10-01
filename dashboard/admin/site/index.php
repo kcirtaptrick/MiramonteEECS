@@ -162,6 +162,51 @@ $userInfo = $conn->query("select * from userInfo where username=\"username\"")->
             height: 80vh;
             width: 100%;
          }
+         .gutter {
+            background: #eee;
+            margin: 0 1rem;
+            cursor: e-resize;
+         }
+         .context-menu {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            position: absolute;
+            z-index: 9999;
+            background: #fbfbfb;
+            box-shadow: 0 0 10px -1px #bbb;
+            border-radius: 3px;
+            transition: opacity 0.2s ease-in-out;
+         }
+         .context-menu.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+         }
+         .context-menu li {
+            margin-left: -40px;
+            list-style-type: none;
+            color: #428bca;
+            border-bottom: 1px solid #ddd;
+            margin-top: -1px;
+            padding: 5px 15px;
+            transition: background 0.15s ease-in-out;
+         }
+         .context-menu li:hover {
+            background-color: #e1edf7;
+            cursor: pointer;
+            border-bottom-color: #e1edf7;
+         }
+         .context-menu li:first-of-type {
+            border-radius: 3px 3px 0 0;
+         }
+         .context-menu li:last-of-type {
+            border-bottom: none;
+            border-radius: 0 0 3px 3px;
+         }
+         .context-menu li i {
+            width: 22px;
+         }
       </style>
    </head>
    <body class="nav-md">
@@ -459,9 +504,9 @@ $userInfo = $conn->query("select * from userInfo where username=\"username\"")->
                         <?php
                         function treeView($root) {
                            
-                           echo '<li class="first">'. preg_replace("/.*\//", "", $root) .'<ul>';
+                           echo '<li class="first" data-path="'.$root.'"><span>'. preg_replace("/.*\//", "", $root) .'</span><ul>';
                            getTree($root);
-                           echo '</ul></li>';
+                           echo '</ul></li>'; 
                         
                            
                         }
@@ -473,7 +518,7 @@ $userInfo = $conn->query("select * from userInfo where username=\"username\"")->
                                     if(!is_dir($dir.'/'.$fileFolder)){
                                         echo '<li data-path="'.$dir.'/'.$fileFolder.'">'.$fileFolder;
                                     } else {
-                                        echo '<li>'.$fileFolder;
+                                        echo '<li data-path="'.$dir.'/'.$fileFolder.'"><span>'.$fileFolder.'</span>';
                                         getTree($dir.'/'.$fileFolder);
                                     }
                                     echo '</li>';

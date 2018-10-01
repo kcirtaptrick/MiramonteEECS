@@ -40,10 +40,13 @@ var $, jQuery, ace;
 
 
 // ---------------- move to page script dashboard/gentelella/dashboard/admin/site --------------
-Split(['#tree-view', '#page-editor .file'], {
-	sizes: [25, 75],
-	// gutterSize: 100,
-	direction: 'horizontal'
+var split = Split(['#tree-view', '#page-editor .file'], {
+	sizes: [15, 85],
+	gutterSize: 10,
+	direction: 'horizontal',
+	gutterStyle: function(dimension, gutterSize) {
+		return { 'flex-basis': gutterSize + 'px' }
+	}
 })
 var file = {
 	path: "",
@@ -72,6 +75,25 @@ var getMode = (path) => {
 				return "text";
 		}
 	}
+}
+
+function getFile(path) {
+	$.ajax({
+		url: '../../../../../default/getFileContents.php',
+		type: 'POST',
+		data: {
+			path: path
+		},
+		success: function(msg) {
+			editor.session.setValue(msg);
+			editor.session.setMode(getMode(path));
+			$('#page-editor .file header').html(path);
+		},
+		error: (e) => {
+			console.log('error: ');
+			console.log(e);
+		}
+	});
 }
 $.fn.extend({
 	treed: function(o) {
@@ -110,31 +132,16 @@ $.fn.extend({
 			leaf.dblclick(function(e) {
 				var clicked = $(this);
 				if (this == e.target) {
-					$.ajax({
-						url: '../../../../../default/getFileContents.php',
-						type: 'POST',
-						data: {
-							path: clicked.data('path')
-						},
-						success: function(msg) {
-							editor.session.setValue(msg);
-							console.log(getMode(clicked.data('path')))
-							editor.session.setMode(getMode(clicked.data('path')));
-						},
-						error: (e) => {
-							console.log('error: ');
-							console.log(e);
-						}
-					});
+					getFile(clicked.data('path'));
 				}
 			});
 		})
 		//fire event from the dynamically added icon
-		// tree.find('.branch .indicator').each(function() {
-		// 	$(this).on('click', function() {
-		// 		$(this).closest('li').click();
-		// 	});
-		// });
+		tree.find('.branch .indicator, .branch span').each(function() {
+			$(this).on('click', function() {
+				$(this).closest('li').click();
+			});
+		});
 		//fire event to open branch if the li contains an anchor instead of text
 		tree.find('.branch>a').each(function() {
 			$(this).on('click', function(e) {
@@ -157,46 +164,88 @@ $('#tree-view .first').trigger('click');
 var editor = ace.edit("ace-editor");
 
 
-
+$('body').append('<ul class="context-menu"></ul>');
 var cm = $(".context-menu");
-$('#tree-view li:not(:has(ul))').contextmenu(function (e) {
-   e.preventDefault();
-   cm.html("<li data-action='edit'><i class='fa fa-pencil'></i>Edit</li><li data-action='copy'><i class='fa fa-copy'></i>Copy</li><li data-action='paste'><i class='fa fa-paste'></i>Paste</li><li data-action='delete'><i class='fa fa-trash'></i>Delete</li><li data-action='action'><i class='fa fa-cog'></i>Edit Action</li>");
-   cm.finish().toggleClass("show").css({
-      top: e.pageY + "px",
-      left: e.pageX  + "px"
-   });
+$('#tree-view li:not(:has(ul))').contextmenu(function(e) {
+	e.preventDefault();
+	cm.html(`
+		<li data-action='preview'><i class='fa fa-pencil'></i>Preview</li>
+		<li data-action='edit'><i class='fa fa-pencil'></i>Edit</li>
+		<li data-action='rename'><i class='fa fa-paste'></i>Rename</li>
+		<li data-action='delete'><i class='fa fa-trash'></i>Delete</li>
+		<li data-action='action'><i class='fa fa-cog'></i>Edit Action</li>
+	`);
+	cm.finish().addClass("show").css({
+		top: e.pageY + "px",
+		left: e.pageX + "px"
+	});
+	let file = this;
+	cm.find('li').on("click", (e) => {
+		console.log($(e.target).attr('data-action'));
+		switch ($(e.target).attr("data-action")) {
+			case "edit":
+				getFile($(file).attr('data-path'));
+				break;
+			case "copy":
+				alert("Copied");
+				break;
+			case "paste":
+				alert("Pasted");
+				break;
+			case "delete":
+				alert("Deleted");
+				break;
+			case "action":
+				alert("Actioned");
+				break;
+		}
+		cm.removeClass("show");
+	});
 });
-
+$('#tree-view li:has(ul) .indicator, #tree-view li:has(ul) span').contextmenu(function(e) {
+	e.preventDefault();
+	cm.html(`
+		<li data-action='add-file'><i class='fa fa-file'></i>Add File</li>
+		<li data-action='add-folder'><i class='fa fa-folder'></i>Add Folder</li>
+		<li data-action='rename'><i class='fa fa-paste'></i>Rename</li>
+		<li data-action='delete'><i class='fa fa-trash'></i>Delete</li>
+		<li data-action='action'><i class='fa fa-cog'></i>Edit Action</li>
+	`);
+	cm.finish().addClass("show").css({
+		top: e.pageY + "px",
+		left: e.pageX + "px"
+	});
+	let folder = this;
+	cm.find('li').on("click", () => {
+		switch ($(this).data("action")) {
+			case "edit":
+				getFile(folder);
+				break;
+			case "copy":
+				alert("Copied");
+				break;
+			case "paste":
+				alert("Pasted");
+				break;
+			case "delete":
+				alert("Deleted");
+				break;
+			case "action":
+				alert("Actioned");
+				break;
+		}
+		cm.removeClass("show");
+	});
+});
+cm.contextmenu((e) => { e.preventDefault() });
 // Hide if clicked off menu
-$(document).on("click", function (event) {   
-   if ($(event.target).closest(".context-menu").length == 0) {
-         cm.removeClass("show");
-   }
+
+$(document).on("click", function(event) {
+	if ($(event.target).closest(".context-menu").length == 0) {
+		cm.removeClass("show");
+	}
 });
 
-//Menu actions
-$(document).on("click", ".context-menu li", function() {
-   // do stuff
-    switch($(this).attr("data-action")) {
-        case "edit": 
-          alert("Edited"); 
-          break;
-        case "copy": 
-          alert("Copied"); 
-          break;
-        case "paste": 
-          alert("Pasted"); 
-          break;
-        case "delete": 
-          alert("Deleted"); 
-          break;
-        case "action": 
-          alert("Actioned"); 
-          break;
-    }
-    cm.removeClass("show");
-});
 
 // ----------------------------------------
 
