@@ -1,0 +1,73 @@
+[{
+	"title": "General",
+	"items": [{
+		"title": "Home",
+		"icon": "fas fa-home",
+		"link": "#"
+	}, {
+		"title": "Clubs",
+		"icon": "fas fa-users",
+		"items": [{
+			"title": "Game Development",
+			"link": "#"
+		}, {
+			"title": "Pioneers in Engineering",
+			"link": "#"
+		}, {
+			"title": "Maker",
+			"link": "#"
+		}]
+	}, {
+		"title": "Projects",
+		"icon": "fas fa-project-diagram",
+		"link": "#"
+	}, {
+		"title": "Calendar",
+		"icon": "fa fa-calendar",
+		"items": [{
+			"title": "Events",
+			"link": "#"
+		}, {
+			"title": "Meetings",
+			"link": "#"
+		}, {
+			"title": "Deadlines"
+		}]
+	}, {
+		"title": "Suggestions",
+		"icon": "far fa-comment-alt",
+		"items": [{
+			"title": "Suggest Feature",
+			"link": "#"
+		}, {
+			"title": "Report Bug",
+			"link": "#"
+		}]
+	}]
+}, {
+	"title": "Administration",
+	"items": [{
+		"title": "Site",
+		"icon": "fa fa-file",
+		"items": [{
+			"title": "Editor",
+			"link": "#"
+		}, {
+			"title": "TreeView",
+			"link": "#"
+		}, {
+			"title": "Preview",
+			"link": "#"
+		}]
+	}, {
+		"title": "Management",
+		"icon": "fa fa-file",
+		"items": [{
+			"title": "Members",
+			"link": "#"
+		}, {
+			"title": "Officers",
+			"link": "#"
+		}]
+	}]
+}]

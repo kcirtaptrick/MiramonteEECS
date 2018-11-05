@@ -13,4 +13,9 @@ function connect() {
 function getModule($module) {
   require __DIR__."/modules/$module.php";
 }
+function console_log($log) {
+  echo "<script>
+  console.log(`$log`);
+  </script>";
+}
 ?>

@@ -54,6 +54,7 @@ nav#main li a, nav#main .dropbtn {
 nav#main li a:hover:not(.active), nav#main .dropdown:hover:not(.active) .dropbtn:not(.active) {
   background-color: #efefef;
   transition-duration: 0.4s;
+  padding: 1em 4em;
 }
 nav#main li.dropdown {
   display: inline-block;
