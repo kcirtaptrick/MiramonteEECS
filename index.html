@@ -10,6 +10,7 @@
         :root {
             --back: #0af;
         }
+
         html,
         body {
             width: 100%;
@@ -92,9 +93,11 @@
     </h1>
 </body>
 <script type="text/javascript">
-    var characters = document.querySelectorAll('h1 span');
-    for (let i in characters) {
-        characters[i].style.animationDelay = `${i/10}s`
+    window.onload = () => {
+        var characters = document.querySelectorAll('h1 span');
+        for (let i in characters) {
+            characters[i].style.animationDelay = `${i/10}s`
+        }
     }
 </script>
 
