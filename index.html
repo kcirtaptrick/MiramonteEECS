@@ -30,7 +30,7 @@
             position: relative;
             top: 1vw;
             display: inline-block;
-            animation: bounce .3s ease infinite alternate;
+            animation: bounce .5s ease infinite alternate;
             font-family: 'Titan One', cursive;
             font-size: 5vw;
             color: #07d;
@@ -93,11 +93,9 @@
     </h1>
 </body>
 <script type="text/javascript">
-    window.onload = () => {
-        var characters = document.querySelectorAll('h1 span');
-        for (let i in characters) {
-            characters[i].style.animationDelay = `${i/10}s`;
-        }
+    var characters = document.querySelectorAll('h1 span');
+    for (let i in characters) {
+        characters[i].style.animationDelay = `${i/10 + 1}s`;
     }
 </script>
 
