@@ -41,7 +41,7 @@ $userInfo = $conn->query("select * from userInfo where username=\"username\"")->
                         <header>Tree View</header>
                         <?php
                         getModule('tree');
-                        treeView(root().'/clubs');
+                        treeView(root(), '/clubs');
                         ?>
                      </div>
                      <div class="file">
@@ -122,7 +122,7 @@ $userInfo = $conn->query("select * from userInfo where username=\"username\"")->
          		},
          		success: function(msg) {
          			editor.session.setValue(msg);
-         			editor.session.setMode(getMode(path));
+         			editor.session.setMode(modelist.getModeForPath(path));
          			$('#page-editor .file header').html(path);
          		},
          		error: (e) => {
@@ -235,6 +235,7 @@ $userInfo = $conn->query("select * from userInfo where username=\"username\"")->
          $('#tree-view').treed({ openedClass: 'fa-folder-open', closedClass: 'fa-folder' });
          $('#tree-view .first').trigger('click');
          var editor = ace.edit("ace-editor");
+         var modelist = ace.require('ace/ext/modelist');
          
          
          $('body').append('<ul class="context-menu"></ul>');
