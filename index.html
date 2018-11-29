@@ -66,36 +66,23 @@
 </head>
 
 <body>
-    <h1>
-        <span>S</span>
-        <span>i</span>
-        <span>t</span>
-        <span>e</span>
-        <span style="margin: 0 1vw"> </span>
-        <span>U</span>
-        <span>n</span>
-        <span>d</span>
-        <span>e</span>
-        <span>r</span>
-        <span style="margin: 0 1vw"> </span>
-        <span>C</span>
-        <span>o</span>
-        <span>n</span>
-        <span>s</span>
-        <span>t</span>
-        <span>r</span>
-        <span>u</span>
-        <span>c</span>
-        <span>t</span>
-        <span>i</span>
-        <span>o</span>
-        <span>n</span>
-    </h1>
 </body>
 <script type="text/javascript">
+    var str = "Site Under Construction"
+    document.body.innerHTML = generate(str);
     var characters = document.querySelectorAll('h1 span');
     for (let i in characters) {
         characters[i].style.animationDelay = `${i/10 + 1}s`;
+    }
+    function generate(str) {
+        var res = '<h1>';
+        var characters = str.split('');
+        for(let char of characters) {
+            res += char == ' ' ? '<span style="margin: 0 1vw"></span>' : `<span>${char}</span>`;
+        }
+        res += '</h1>';
+        console.log(res);
+        return res;
     }
 </script>
 
