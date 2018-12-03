@@ -24,10 +24,10 @@ var group = (group) => {
 
 var format = {
   name: (name) => {
-    return name.replace(/[^a-zA-Z ,.'-]+/g, '').length > 30 ? name.replace(/[^a-zA-Z ,.'-]+/g, '').substring(0,30) : name.replace(/[^a-zA-Z ,.'-]+/g, '');
+    return name.replace(/[^a-zA-Z ,.'-]+/g, '');
   },
   mailName: (name) => {
-    return name.toLowerCase().replace(/[^a-z]/, '').substring;
+    return name.toLowerCase().replace(/[^a-z]/, '');
   },
   number: (num) => {
     return num.toString().replace(/[^0-9]/g, '');
@@ -45,14 +45,17 @@ var add = {
   }
 };
 
-var get = {
+var gettxt = {
   schoolEmail: () => {
+    var txt = `${format.mailName(group('first').val())}.${format.mailName(group('last').val())}${format.number(date.getFullYear() % 100 + Number(date.getMonth() > 6) + 12 - Number($('.form-group.grade select option:selected').text()))}@auhsdschools.org`;
+    console.log(txt);
+    console.log('^');
     return `${format.mailName(group('first').val())}.${format.mailName(group('last').val())}${format.number(date.getFullYear() % 100 + Number(date.getMonth() > 6) + 12 - Number($('.form-group.grade select option:selected').text()))}@auhsdschools.org`;
   }
 };
 
 $('.form-group.first input, .form-group.last input, .form-group.grade').on('input', (e) => {
-  $('.form-group.school-email span.email').text(`${get.schoolEmail()}`);
+  $('.form-group.school-email span.email').text(`${gettxt.schoolEmail()}`);
   $('.form-group.school-email p').css('display', 'inline-block');
 }); 
 
